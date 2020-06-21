@@ -1,4 +1,4 @@
-package javafxapplication;
+package controller;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -61,14 +61,17 @@ public class mainscreenController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        Search.setText("search button test");
     }    
 
     @FXML
     private void searchHandler(ActionEvent event) {
+            Search.setText("search button");
     }
 
     @FXML
     private void addHandler(ActionEvent event) {
+
     }
 
     @FXML
