@@ -10,6 +10,6 @@
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
     <jar href="JavaFXApplication.jar" size="4562" download="eager" />
   </resources>
-  <jfx:javafx-desc  width="800" height="600" main-class="javafxapplication.JavaFXApplication"  name="JavaFXApplication" />
+  <jfx:javafx-desc width="800" height="600" main-class="Main.InventoryProgram" name="JavaFXApplication" />
   <update check="always"/>
 </jnlp>
