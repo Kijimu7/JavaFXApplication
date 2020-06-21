@@ -15,11 +15,13 @@ import javafx.stage.Stage;
  *
  * @author pinko
  */
-public class InventoryProgram extends Application {
+public class
+
+InventoryProgram extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("../view-controller/FXMLDocument.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../ViewController/MainScreen.fxml"));
         
         Scene scene = new Scene(root);
         

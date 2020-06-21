@@ -1,4 +1,4 @@
-package Main;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -6,6 +6,7 @@ package Main;
  * and open the template in the editor.
  */
 
+package ViewController;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,7 +25,7 @@ import java.util.ResourceBundle;
  *
  * @author pinko
  */
-public class mainscreenController implements Initializable {
+public class MainScreenController implements Initializable {
 
     @FXML
     private Button Search;
@@ -61,10 +62,14 @@ public class mainscreenController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+
+        SearchText.setText("Hello");
+
     }    
 
     @FXML
     private void searchHandler(ActionEvent event) {
+        SearchText.setText("Hello Again");
     }
 
     @FXML
