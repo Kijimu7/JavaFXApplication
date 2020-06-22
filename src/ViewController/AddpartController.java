@@ -7,6 +7,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 
+import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -47,6 +48,17 @@ public class AddpartController implements Initializable {
 
     @FXML
     private Button addPartcancelBtn;
+
+    @FXML
+    void onActionDisplayMainScreen(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onActionSavePart(ActionEvent event) {
+
+    }
+
 
 
 
