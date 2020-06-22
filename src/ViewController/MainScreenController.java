@@ -16,6 +16,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -28,112 +29,147 @@ import java.util.ResourceBundle;
 public class MainScreenController implements Initializable {
 
     @FXML
-    private Button Search;
+    private Button imsPartSearchBtn;
+
     @FXML
-    private TextField SearchText;
+    private TextField imsPartSearchTxt;
+
     @FXML
-    private TableView<?> table;
+    private TableView<?> partTableView;
+
     @FXML
-    private TableColumn<?, ?> Id;
+    private TableColumn<?, ?> partIdCol;
+
     @FXML
-    private TableColumn<?, ?> Name;
+    private TableColumn<?, ?> partNameCol;
+
     @FXML
-    private TableColumn<?, ?> inStock;
+    private TableColumn<?, ?> partInvCol;
+
     @FXML
-    private TableColumn<?, ?> Price;
+    private TableColumn<?, ?> partPriceCol;
+
     @FXML
-    private Button Search1;
+    private Button imsPartAddBtn;
+
     @FXML
-    private TextField SearchText1;
+    private AnchorPane addPartButton;
+
+    @FXML
+    private Button imsSearchBtn;
+
+    @FXML
+    private TextField imsProductTxt;
+
     @FXML
     private TableView<?> table1;
-    @FXML
-    private TableColumn<?, ?> Id1;
-    @FXML
-    private TableColumn<?, ?> Name1;
-    @FXML
-    private TableColumn<?, ?> inStock1;
-    @FXML
-    private TableColumn<?, ?> Price1;
 
-    /**
-     * Initializes the controller class.
-     */
+    @FXML
+    private TableColumn<?, ?> productIdCol;
+
+    @FXML
+    private TableColumn<?, ?> productNameCol;
+
+    @FXML
+    private TableColumn<?, ?> productInvCol;
+
+    @FXML
+    private TableColumn<?, ?> productPriceCol;
+
+    @FXML
+    private Button imsAddBtn;
+
+    @FXML
+    private Button imsModifyBtn;
+
+    @FXML
+    private Button imsDeleteBtn;
+
+    @FXML
+    private Button imsExitBtn;
+
+    @FXML
+    void addHandler(MouseEvent event) {
+
+    }
+
+    @FXML
+    void addHandler1(MouseEvent event) {
+
+    }
+
+    @FXML
+    void deleteHandler(MouseEvent event) {
+
+    }
+
+    @FXML
+    void deleteHandler1(MouseEvent event) {
+
+    }
+
+    @FXML
+    void exitHandler(MouseEvent event) {
+
+    }
+
+    @FXML
+    void modifyHandler(MouseEvent event) {
+
+    }
+
+    @FXML
+    void modifyHandler1(MouseEvent event) {
+
+    }
+
+    @FXML
+    void partOnActionAdd(ActionEvent event) {
+
+    }
+
+    @FXML
+    void partOnActionDelete(ActionEvent event) {
+
+    }
+
+    @FXML
+    void partOnActionModify(ActionEvent event) {
+
+    }
+
+    @FXML
+    void partOnActionSearch(ActionEvent event) {
+
+    }
+
+    @FXML
+    void productOnActionAdd(ActionEvent event) {
+
+    }
+
+    @FXML
+    void productOnActionDelete(ActionEvent event) {
+
+    }
+
+    @FXML
+    void productOnActionModify(ActionEvent event) {
+
+    }
+
+    @FXML
+    void productOnActionSearch(ActionEvent event) {
+
+    }
+
+    @FXML
+    void searchHandler(MouseEvent event) {
+
+    }
+
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+    public void initialize(URL location, ResourceBundle resources) {
 
-        SearchText.setText("Hello");
-
-    }    
-
-    @FXML
-    private void searchHandler(ActionEvent event) {
-        SearchText.setText("Hello Again");
     }
-
-    @FXML
-    private void addHandler(ActionEvent event) {
-    }
-
-    @FXML
-    private void modifyHandler(ActionEvent event) {
-    }
-
-    @FXML
-    private void deleteHandler(ActionEvent event) {
-    }
-
-    @FXML
-    private void addHandler1(ActionEvent event) {
-    }
-
-    @FXML
-    private void modifyHandler1(ActionEvent event) {
-    }
-
-    @FXML
-    private void deleteHandler1(ActionEvent event) {
-    }
-
-    @FXML
-    private void exitHandler(ActionEvent event) {
-    }
-
-    @FXML
-    private void searchHandler(MouseEvent event) {
-    }
-
-    @FXML
-    private void addHandler(MouseEvent event) {
-    }
-
-    @FXML
-    private void modifyHandler(MouseEvent event) {
-    }
-
-    @FXML
-    private void deleteHandler(MouseEvent event) {
-    }
-
-    @FXML
-    private void Search1(MouseEvent event) {
-    }
-
-    @FXML
-    private void addHandler1(MouseEvent event) {
-    }
-
-    @FXML
-    private void modifyHandler1(MouseEvent event) {
-    }
-
-    @FXML
-    private void deleteHandler1(MouseEvent event) {
-    }
-
-    @FXML
-    private void exitHandler(MouseEvent event) {
-    }
-    
 }
