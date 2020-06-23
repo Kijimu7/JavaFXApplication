@@ -10,14 +10,19 @@ package ViewController;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -27,6 +32,11 @@ import java.util.ResourceBundle;
  * @author pinko
  */
 public class MainScreenController implements Initializable {
+
+    Stage stage;
+    Parent scene;
+
+
 
     @FXML
     private Button imsPartSearchBtn;
@@ -124,17 +134,27 @@ public class MainScreenController implements Initializable {
     }
 
     @FXML
-    void partOnActionAdd(ActionEvent event) {
+    void partOnActionAdd(ActionEvent event) throws IOException {
 
+        stage = (Stage)(( Button)event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("/ViewController/Addpart.fxml"));
+        stage.setScene(new Scene(scene));
+        stage.show();
     }
 
     @FXML
     void partOnActionDelete(ActionEvent event) {
 
+
     }
 
     @FXML
-    void partOnActionModify(ActionEvent event) {
+    void partOnActionModify(ActionEvent event) throws IOException{
+
+        stage = (Stage)(( Button)event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("/ViewController/Modifypart.fxml"));
+        stage.setScene(new Scene(scene));
+        stage.show();
 
     }
 
@@ -144,13 +164,17 @@ public class MainScreenController implements Initializable {
     }
 
     @FXML
-    void productOnActionAdd(ActionEvent event) {
+    void productOnActionAdd(ActionEvent event) throws IOException {
 
+        stage = (Stage)(( Button)event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("/ViewController/Addproduct.fxml"));
+        stage.setScene(new Scene(scene));
+        stage.show();
     }
 
     @FXML
     void productOnActionDelete(ActionEvent event) {
-
+        System.out.println("Delete button clicked!");
     }
 
     @FXML

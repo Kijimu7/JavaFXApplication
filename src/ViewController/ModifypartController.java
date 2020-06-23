@@ -8,6 +8,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 
+import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -49,8 +50,19 @@ public class ModifypartController implements Initializable {
     @FXML
     private Button cancelBtn;
 
+    @FXML
+    void modifyPartCancel(ActionEvent event) {
+
+        System.out.println("test");
+
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+    }
+
+    public void modifyPartCancel(javafx.event.ActionEvent actionEvent) {
 
     }
 }
