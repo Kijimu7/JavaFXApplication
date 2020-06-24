@@ -62,12 +62,7 @@ public class AddpartController implements Initializable {
 
     @FXML public void onActionCancel(ActionEvent event) throws IOException {
 
-        System.out.println("test");
 
-        stage = (Stage)((Button)event.getSource()).getScene().getWindow();
-        scene = FXMLLoader.load(getClass().getResource("MainScreen.fxml"));
-        stage.setScene(new Scene((Parent) scene));
-        stage.show();
 
     }
 
@@ -88,10 +83,17 @@ public class AddpartController implements Initializable {
     }
 
     public void onActionSavePart(javafx.event.ActionEvent actionEvent) {
+        System.out.println("test");
     }
 
 
 
-    public void onActionCancel(javafx.event.ActionEvent actionEvent) {
+    public void onActionCancel(javafx.event.ActionEvent event) throws IOException{
+
+
+        stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("MainScreen.fxml"));
+        stage.setScene(new Scene((Parent) scene));
+        stage.show();
     }
 }

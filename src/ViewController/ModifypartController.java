@@ -2,17 +2,25 @@ package ViewController;
 
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.stage.Stage;
 
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ModifypartController implements Initializable {
+
+    Stage stage;
+    Parent scene;
 
     @FXML
     private RadioButton InHouseRBtn;
@@ -53,7 +61,40 @@ public class ModifypartController implements Initializable {
     @FXML
     void modifyPartCancel(ActionEvent event) {
 
-        System.out.println("test");
+    }
+
+    @FXML
+    void modifyPartCompanyTxt(ActionEvent event) {
+
+    }
+
+    @FXML
+    void modifyPartCostTxt(ActionEvent event) {
+
+    }
+
+    @FXML
+    void modifyPartInvTxt(ActionEvent event) {
+
+    }
+
+    @FXML
+    void modifyPartMaxTxt(ActionEvent event) {
+
+    }
+
+    @FXML
+    void modifyPartMinTxt(ActionEvent event) {
+
+    }
+
+    @FXML
+    void modifyPartNameTxt(ActionEvent event) {
+
+    }
+
+    @FXML
+    void modifyPartSave(ActionEvent event) {
 
     }
 
@@ -62,7 +103,50 @@ public class ModifypartController implements Initializable {
 
     }
 
-    public void modifyPartCancel(javafx.event.ActionEvent actionEvent) {
+    public void modifyPartMinTxt(javafx.event.ActionEvent actionEvent) {
+    }
 
+    public void modifyPartCostTxt(javafx.event.ActionEvent actionEvent) {
+    }
+
+    public void modifyPartCompanyTxt(javafx.event.ActionEvent actionEvent) {
+    }
+
+    public void modifyPartMaxTxt(javafx.event.ActionEvent actionEvent) {
+    }
+
+    public void modifyPartInvTxt(javafx.event.ActionEvent actionEvent) {
+    }
+
+    public void modifyPartNameTxt(javafx.event.ActionEvent actionEvent) {
+    }
+
+    public void modifyPartSave(javafx.event.ActionEvent actionEvent) {
+    }
+
+    public void modifyPartCancel(javafx.event.ActionEvent event) throws IOException {
+
+        stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("MainScreen.fxml"));
+        stage.setScene(new Scene((Parent) scene));
+        stage.show();
+    }
+
+    public void modifyProductIdTxt(javafx.event.ActionEvent actionEvent) {
+    }
+
+    public void modifyProductSearch(javafx.event.ActionEvent actionEvent) {
+    }
+
+    public void modifyProductSave(javafx.event.ActionEvent actionEvent) {
+    }
+
+    public void modifyProductCancel(javafx.event.ActionEvent actionEvent) {
+    }
+
+    public void modifyProductDelete(javafx.event.ActionEvent actionEvent) {
+    }
+
+    public void modifyProductAdd(javafx.event.ActionEvent actionEvent) {
     }
 }
