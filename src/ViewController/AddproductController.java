@@ -81,7 +81,9 @@ public class AddproductController implements Initializable {
 
     }
 
-    public void addProductCancel(ActionEvent event) throws IOException {
+    public void addProductCancel(ActionEvent event) throws IOException
+
+    {
 
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
         scene = FXMLLoader.load(getClass().getResource("MainScreen.fxml"));

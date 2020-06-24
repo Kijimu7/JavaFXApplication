@@ -31,7 +31,7 @@ public abstract class Part {
 //Declare methods
 
    //getters
-   public int getID(){
+   public int getId(){
       return id;
    }
    public String getName(){

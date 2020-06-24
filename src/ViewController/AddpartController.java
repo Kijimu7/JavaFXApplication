@@ -83,7 +83,14 @@ public class AddpartController implements Initializable {
     }
 
     public void onActionSavePart(javafx.event.ActionEvent actionEvent) {
-        System.out.println("test");
+        int id = Integer.parseInt(addPartIdTxt.getText());
+        String name = addPartNameTxt.getText();
+        int stock = Integer.parseInt(addPartInvTxt.getText());
+        String max = addPartMaxTxt.getText();
+        String min = addPartMinTxt.getText();
+        double price = Double.parseDouble(addPartPriceTxt.getText());
+
+
     }
 
 

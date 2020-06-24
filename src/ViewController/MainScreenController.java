@@ -18,9 +18,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import model.Inventory;
+import model.Part;
 
 import java.io.IOException;
 import java.net.URL;
@@ -45,19 +48,19 @@ public class MainScreenController implements Initializable {
     private TextField imsPartSearchTxt;
 
     @FXML
-    private TableView<?> partTableView;
+    private TableView<Part> partTableView;
 
     @FXML
-    private TableColumn<?, ?> partIdCol;
+    private TableColumn<Part, Integer> partIdCol;
 
     @FXML
-    private TableColumn<?, ?> partNameCol;
+    private TableColumn<Part, String> partNameCol;
 
     @FXML
-    private TableColumn<?, ?> partInvCol;
+    private TableColumn<Part, String> partInvCol;
 
     @FXML
-    private TableColumn<?, ?> partPriceCol;
+    private TableColumn<Part, Double> partPriceCol;
 
     @FXML
     private Button imsPartAddBtn;
@@ -119,7 +122,10 @@ public class MainScreenController implements Initializable {
     }
 
     @FXML
-    void exitHandler(MouseEvent event) {
+    void exitHandler(ActionEvent event) {
+
+        System.exit(0);
+
 
     }
 
@@ -196,8 +202,20 @@ public class MainScreenController implements Initializable {
 
     }
 
+    //Initializes the controller class
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        partTableView.setItems(Inventory.getAllParts());
+
+        partIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        partNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        partInvCol.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        partPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
+
+
+
+
     }
+
 }

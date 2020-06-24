@@ -13,11 +13,13 @@ public class Inventory {
 
         public static void addPart(Part newPart)
         {
+
             allParts.add(newPart);
         }
 
         public static void addProduct(Product newProduct)
         {
+
             allProducts.add(newProduct);
         }
 
@@ -67,6 +69,7 @@ public class Inventory {
 
         public static ObservableList<Part> getAllParts()
         {
+
             return allParts;
         }
 

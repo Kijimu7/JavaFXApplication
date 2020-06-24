@@ -43,6 +43,6 @@
       </AnchorPane>
       <Label layoutX="109.0" layoutY="25.0" prefHeight="17.0" prefWidth="166.0" text="Inventory Management System" />
       <Label layoutX="39.0" layoutY="25.0" prefHeight="17.0" prefWidth="54.0" text="Products" />
-      <Button fx:id="imsExitBtn" layoutX="948.0" layoutY="341.0" mnemonicParsing="false" onAction="#exitHandler" onMouseClicked="#exitHandler" text="Exit" />
+      <Button fx:id="imsExitBtn" layoutX="948.0" layoutY="341.0" mnemonicParsing="false" onAction="#exitHandler" text="Exit" />
    </children>
 </AnchorPane>
