@@ -14,10 +14,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -27,6 +24,7 @@ import model.Part;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 /**
@@ -150,7 +148,17 @@ public class MainScreenController implements Initializable {
 
     @FXML
     void partOnActionDelete(ActionEvent event) {
+        // Delete Part Items
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation Dialog");
+        alert.setHeaderText("Delete Part");
+        alert.setContentText("Are you sure you want to delete this part?");
 
+        Optional<ButtonType>result = alert.showAndWait();
+        if(result.get() == ButtonType.OK){
+            Part partToDelete= partTableView.getSelectionModel().getSelectedItem();
+            Inventory.deletePart(partToDelete);
+        }
 
     }
 
@@ -180,8 +188,10 @@ public class MainScreenController implements Initializable {
 
     @FXML
     void productOnActionDelete(ActionEvent event) {
-        System.out.println("Delete button clicked!");
-    }
+
+
+        }
+
 
     @FXML
     void productOnActionModify(ActionEvent event) throws IOException {
@@ -212,6 +222,7 @@ public class MainScreenController implements Initializable {
         partNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         partInvCol.setCellValueFactory(new PropertyValueFactory<>("inv"));
         partPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
+
 
 
 

@@ -56,8 +56,9 @@ public class Inventory {
     }
 
     //delete
-    public static void deletePart(Part selectedPart){
-        //boolean
+    public static boolean deletePart(Part selectedPart){
+        allParts.remove(selectedPart);
+        return true;
     }
 
     public static void deleteProduct(Product selectedProduct){

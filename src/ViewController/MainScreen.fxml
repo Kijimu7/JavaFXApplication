@@ -37,8 +37,8 @@
               </columns>
             </TableView>
             <Button fx:id="imsPartAddBtn" layoutX="243.0" layoutY="216.0" mnemonicParsing="false" onAction="#partOnActionAdd" onMouseClicked="#addHandler" text="Add" />
-            <Button layoutX="303.0" layoutY="216.0" mnemonicParsing="false" onAction="#partOnActionModify" onMouseClicked="#modifyHandler" text="Modify" />
-            <Button layoutX="377.0" layoutY="216.0" mnemonicParsing="false" onAction="#partOnActionDelete" onMouseClicked="#deleteHandler" text="Delete" />
+            <Button layoutX="303.0" layoutY="216.0" mnemonicParsing="false" onAction="#partOnActionModify"  text="Modify" />
+            <Button layoutX="377.0" layoutY="216.0" mnemonicParsing="false" onAction="#partOnActionDelete" text="Delete" />
          </children>
       </AnchorPane>
       <Label layoutX="109.0" layoutY="25.0" prefHeight="17.0" prefWidth="166.0" text="Inventory Management System" />
