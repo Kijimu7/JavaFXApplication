@@ -22,36 +22,48 @@ public class
 
 InventoryProgram extends Application {
 
-    @Override
-    public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("../ViewController/MainScreen.fxml"));
-        
-        Scene scene = new Scene(root);
-        
-        stage.setScene(scene);
-        stage.show();
-    }
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
-        //InHouse
-        Part part1 = new InHouse(1, "Part1", 5.00, 3, 100, 200);
-        Part part2 = new InHouse(2, "Part2", 6.00, 3, 100, 250);
-        Part part3 = new InHouse(3, "Part3", 7.00, 3, 100, 300);
+        launch(args);
+    }
 
 
+    @Override
+    public void start(Stage stage) throws Exception {
+
+        Inventory inventory = new Inventory();
+        addTestData(inventory);
+
+        Parent root = FXMLLoader.load(getClass().getResource("../ViewController/MainScreen.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
+
+    void addTestData(Inventory inv) {
+
+        //Add InHouse Parts
+        Part part1 = new InHouse(1, "InPart1", 5.00, 10, 1, 100, 101);
+        Part part2 = new InHouse(2, "InPart2", 6.00, 20, 1, 100, 102);
+        Part part3 = new InHouse(3, "InPart3", 7.00, 30, 1, 100, 103);
+        Part part4 = new InHouse(4, "InPart4", 8.00, 40, 1, 100, 104);
+        Part part5 = new InHouse(5, "InPart4", 8.00, 40, 1, 100, 105);
 
         Inventory.addPart(part1);
         Inventory.addPart(part2);
         Inventory.addPart(part3);
+        Inventory.addPart(part4);
+        Inventory.addPart(part5);
 
 
 
-
-        launch(args);
     }
+
+
     
 }

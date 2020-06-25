@@ -10,6 +10,9 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
+import model.InHouse;
+import model.Inventory;
+import model.Outsourced;
 
 import java.awt.event.ActionEvent;
 import java.io.IOException;
@@ -39,6 +42,9 @@ public class AddpartController implements Initializable {
 
     @FXML
     private TextField addPartCnameTxt;
+
+    @FXML
+    private TextField addPartMachineTxt;
 
     @FXML
     private TextField addPartMaxTxt;
@@ -82,13 +88,29 @@ public class AddpartController implements Initializable {
 
     }
 
-    public void onActionSavePart(javafx.event.ActionEvent actionEvent) {
+    public void onActionSavePart(javafx.event.ActionEvent event) throws IOException {
+        
         int id = Integer.parseInt(addPartIdTxt.getText());
         String name = addPartNameTxt.getText();
-        int stock = Integer.parseInt(addPartInvTxt.getText());
-        String max = addPartMaxTxt.getText();
-        String min = addPartMinTxt.getText();
+        int inv = Integer.parseInt(addPartInvTxt.getText());
+        int max = Integer.parseInt(addPartMaxTxt.getText());
+        int min = Integer.parseInt(addPartMinTxt.getText());
         double price = Double.parseDouble(addPartPriceTxt.getText());
+
+
+        if(addPartInhouseRBtn.isSelected()){
+            int machineId = Integer.parseInt(addPartMachineTxt.getText());
+            InHouse newInhousePart = new InHouse(id, name, price,inv ,min, max, machineId);
+            Inventory.addPart(newInhousePart);
+        }
+        if(addPartOutsourcedRBtn.isSelected()){
+            String Cname = addPartCnameTxt.getText();
+            Outsourced newOutsourcedPart = new Outsourced(id, name, price, inv, min, max, Cname);
+            Inventory.addPart(newOutsourcedPart);
+
+        }
+        onActionCancel(event);
+
 
 
     }

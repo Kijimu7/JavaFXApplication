@@ -210,7 +210,7 @@ public class MainScreenController implements Initializable {
 
         partIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         partNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
-        partInvCol.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        partInvCol.setCellValueFactory(new PropertyValueFactory<>("inv"));
         partPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
 
 
