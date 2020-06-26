@@ -8,16 +8,16 @@ public class Product {
     private static ObservableList<Part> associatedParts = FXCollections.observableArrayList();
     private int id;
     private String name;
-    private double price = 0.0;
-    private int stock =0;
+    private double price;
+    private int inv ;
     private int min;
     private int max;
 
-    public Product(int id, String name, double price, int stock, int min, int max) {
+    public Product(int id, String name, double price, int inv, int min, int max) {
         this.id = id;
         this.name = name;
         this.price = price;
-        this.stock = stock;
+        this.inv = inv;
         this.min = min;
         this.max = max;
     }
@@ -47,12 +47,12 @@ public class Product {
         this.price = price;
     }
 
-    public int getStock() {
-        return stock;
+    public int getInv() {
+        return inv;
     }
 
-    public void setStock(int stock) {
-        this.stock = stock;
+    public void setInv(int inv) {
+        this.inv = inv;
     }
 
     public int getMin() {

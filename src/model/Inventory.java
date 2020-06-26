@@ -54,20 +54,31 @@ public class Inventory {
            }
     return foundParts;
     }
-    public static void lookupProduct(String productName)
-    {
-        //ObservableList<Product>
+
+    public static ObservableList<Product> lookupProduct(String productName) {
+        ObservableList<Product> foundProducts = FXCollections.observableArrayList();
+        for (int i = 0; i < allProducts.size(); i++) {
+            if (allProducts.get(i).getName().toLowerCase().contains(productName.toLowerCase())) {
+                foundProducts.add(allProducts.get(i));
+            }
+        }
+        return foundProducts;
     }
 
+public int getPartIndex(Part part){
+            return allParts.indexOf(part);
+}
 
     //update
 
+
     public static void updatePart(int index, Part selectedPart){
+            allParts.set(index, selectedPart);
 
     }
 
-    public static void updateProduct(int index, Product newProduct){
-
+    public static void updateProduct(int index, Product selectedProduct){
+            allProducts.set(index, selectedProduct);
     }
 
     //delete
@@ -76,8 +87,9 @@ public class Inventory {
         return true;
     }
 
-    public static void deleteProduct(Product selectedProduct){
-        //boolean
+    public static boolean deleteProduct(Product selectedProduct){
+        allProducts.remove(selectedProduct);
+        return true;
     }
 
 

@@ -21,6 +21,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.Inventory;
 import model.Part;
+import model.Product;
 
 import java.io.IOException;
 import java.net.URL;
@@ -73,7 +74,7 @@ public class MainScreenController implements Initializable {
     private TextField imsProductTxt;
 
     @FXML
-    private TableView<?> table1;
+    private TableView<Product> table1;
 
     @FXML
     private TableColumn<?, ?> productIdCol;
@@ -146,6 +147,7 @@ public class MainScreenController implements Initializable {
         stage.show();
     }
 
+    //Part table delete button
     @FXML
     void partOnActionDelete(ActionEvent event) {
         // Delete Part Items
@@ -172,8 +174,15 @@ public class MainScreenController implements Initializable {
 
     }
 
+    //Part table search button
     @FXML
     void partOnActionSearch(ActionEvent event) {
+        String searchedPart = imsPartSearchTxt.getText();
+        for(Part part : Inventory.getAllParts()){
+            if(part.getName().equals(searchedPart)||Integer.toString(part.getId()).equals(searchedPart)){
+                partTableView.getSelectionModel().select(part);
+            }
+        }
 
     }
 
@@ -186,9 +195,20 @@ public class MainScreenController implements Initializable {
         stage.show();
     }
 
+    //Product table delete
     @FXML
     void productOnActionDelete(ActionEvent event) {
+        // Delete Part Items
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation Dialog");
+        alert.setHeaderText("Delete Product");
+        alert.setContentText("Are you sure you want to delete this product?");
 
+        Optional<ButtonType>result = alert.showAndWait();
+        if(result.get() == ButtonType.OK){
+            Product productToDelete= table1.getSelectionModel().getSelectedItem();
+            Inventory.deleteProduct(productToDelete);
+        }
 
         }
 
@@ -202,9 +222,15 @@ public class MainScreenController implements Initializable {
         stage.show();
     }
 
+    //Product table search
     @FXML
     void productOnActionSearch(ActionEvent event) {
-
+        String searchedProduct = imsProductTxt.getText();
+        for(Product product : Inventory.getAllProducts()){
+            if(product.getName().equals(searchedProduct)||Integer.toString(product.getId()).equals(searchedProduct)){
+                table1.getSelectionModel().select(product);
+            }
+        }
     }
 
     @FXML
@@ -216,6 +242,7 @@ public class MainScreenController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        //set the part table data
         partTableView.setItems(Inventory.getAllParts());
 
         partIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -224,6 +251,13 @@ public class MainScreenController implements Initializable {
         partPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
 
 
+        //set the product table data
+        table1.setItems(Inventory.getAllProducts());
+
+        productIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        productNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        productInvCol.setCellValueFactory(new PropertyValueFactory<>("inv"));
+        productPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
 
 
 
