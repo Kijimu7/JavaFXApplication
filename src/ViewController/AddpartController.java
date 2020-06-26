@@ -88,18 +88,6 @@ public class AddpartController implements Initializable {
 //
 //    }
 
-//
-//    @FXML
-//    void addPartInhouseRBtnSelected(ActionEvent event){
-//        isOutsourced = false;
-//        addPartCnameLbl.setText("Machine ID");
-//    }
-//
-//    @FXML
-//    void addPartOutsourcedRBtnSelected(ActionEvent event){
-//        isOutsourced = true;
-//        addPartCnameLbl.setText("Company Name");
-//    }
 
 
 
@@ -108,21 +96,64 @@ public class AddpartController implements Initializable {
 
     }
 
-        //This method will update the radioButtonLabel when different radio button is pushed
 
-
-//        if (this.toggleGroup.getSelectedToggle().equals(this.addPartOutsourcedRBtn))
-//            addPartCnameLbl.setText("Company name");
-//
-//        if (this.toggleGroup.getSelectedToggle().equals(this.addPartInhouseRBtn))
-//            addPartCnameLbl.setText("Machine Id");
 
 
 
 
             public void onActionSavePart (javafx.event.ActionEvent event) throws IOException {
 
-                int id = Integer.parseInt(addPartIdTxt.getText());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//                //Create auto Ids
+//                Random random = new Random();
+//                int id = random.nextInt(50);
+//
+//
+//                if(isOutsourced == false){
+//
+//                    InHouse newInHouse = new InHouse(0, "", 0, 0, 0, 0,0);
+//
+//                    if(isValid(addPartNameTxt.getText(), addPartPriceTxt.getText(),addPartInvTxt.getText(),addPartMinTxt.getText(),addPartMaxTxt.getText(),addPartMachineTxt.getText())){
+//                        newInHouse.setId(id);
+//
+//
+//
+//
+//                    }
+//
+//
+//                }
+
+
+
+
+
+
+        int id = Integer.parseInt(addPartIdTxt.getText());
                 String name = addPartNameTxt.getText();
                 int inv = Integer.parseInt(addPartInvTxt.getText());
                 int max = Integer.parseInt(addPartMaxTxt.getText());
