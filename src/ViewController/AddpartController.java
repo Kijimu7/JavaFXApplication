@@ -91,13 +91,13 @@ public class AddpartController implements Initializable {
 
 
     @FXML
-    void inhouseRadioButtonSelected(javafx.event.ActionEvent event) {
+    void inhouseRbtnS(javafx.event.ActionEvent event) {
         isOutsourced = false;
         addPartCnameLbl.setText("Machine ID");
     }
 
     @FXML
-    void outsourcedRadioButtonSelected(javafx.event.ActionEvent event) {
+    void outsourcedRBtnS(javafx.event.ActionEvent event) {
         isOutsourced = true;
         addPartCnameLbl.setText("Company Name");
     }
@@ -124,22 +124,22 @@ public class AddpartController implements Initializable {
                     newInHouse.setName(addPartNameTxt.getText());
                 }
                 if (!addPartPriceTxt.getText().isEmpty()) {
-                    newInHouse.setName(addPartPriceTxt.getText());
+                    newInHouse.setPrice(Double.parseDouble(addPartPriceTxt.getText()));
                 }
                 if (!addPartInvTxt.getText().isEmpty()) {
-                    newInHouse.setName(addPartInvTxt.getText());
+                    newInHouse.setInv(Integer.parseInt(addPartInvTxt.getText()));
                 }
                 if (!addPartMinTxt.getText().isEmpty()) {
-                    newInHouse.setName(addPartMinTxt.getText());
+                    newInHouse.setMin(Integer.parseInt(addPartMinTxt.getText()));
                 }
                 if (!addPartMaxTxt.getText().isEmpty()) {
-                    newInHouse.setName(addPartMaxTxt.getText());
+                    newInHouse.setMax(Integer.parseInt(addPartMaxTxt.getText()));
                 }
                 if (!addPartDynamicTxt.getText().isEmpty()) {
-                    newInHouse.setName(addPartDynamicTxt.getText());
+                    newInHouse.setMachineId(Integer.parseInt(addPartDynamicTxt.getText()));
                 }
 
-                inventory.addPart(newInHouse);
+                Inventory.addPart(newInHouse);
                 System.out.println("Part Added");
 
                 Stage stage;
@@ -162,22 +162,22 @@ public class AddpartController implements Initializable {
                         newOutsourced.setName(addPartNameTxt.getText());
                     }
                     if (!addPartPriceTxt.getText().isEmpty()) {
-                        newOutsourced.setName(addPartPriceTxt.getText());
+                        newOutsourced.setPrice(Double.parseDouble(addPartPriceTxt.getText()));
                     }
                     if (!addPartInvTxt.getText().isEmpty()) {
-                        newOutsourced.setName(addPartInvTxt.getText());
+                        newOutsourced.setInv(Integer.parseInt(addPartInvTxt.getText()));
                     }
                     if (!addPartMinTxt.getText().isEmpty()) {
-                        newOutsourced.setName(addPartMinTxt.getText());
+                        newOutsourced.setMin(Integer.parseInt(addPartMinTxt.getText()));
                     }
                     if (!addPartMaxTxt.getText().isEmpty()) {
-                        newOutsourced.setName(addPartMaxTxt.getText());
+                        newOutsourced.setMax(Integer.parseInt(addPartMaxTxt.getText()));
                     }
                     if (!addPartDynamicTxt.getText().isEmpty()) {
-                        newOutsourced.setName(addPartDynamicTxt.getText());
+                        newOutsourced.setCompanyName(addPartDynamicTxt.getText());
                     }
 
-                    inventory.addPart(newOutsourced);
+                    Inventory.addPart(newOutsourced);
                     System.out.println("Part Added");
 
                     Stage stage;
@@ -202,7 +202,7 @@ public class AddpartController implements Initializable {
 
             stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
             scene = FXMLLoader.load(getClass().getResource("MainScreen.fxml"));
-            stage.setScene(new Scene((Parent) scene));
+            stage.setScene(new Scene(scene));
             stage.show();
         }
 

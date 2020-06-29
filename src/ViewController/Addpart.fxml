@@ -6,11 +6,11 @@
 <AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ViewController.AddpartController">
    <children>
       <Label layoutX="35.0" layoutY="43.0" text="Add Part" />
-      <RadioButton fx:id="addPartInhouseRBtn" layoutX="138.0" layoutY="43.0" mnemonicParsing="false" onAction="#inhouseRadioButtonSelected" text="In-House">
+      <RadioButton fx:id="addPartInhouseRBtn" layoutX="138.0" layoutY="43.0" mnemonicParsing="false" onAction="#inhouseRbtnS" text="In-House">
          <toggleGroup>
             <ToggleGroup fx:id="toggleGroup" />
          </toggleGroup></RadioButton>
-      <RadioButton fx:id="addPartOutsourcedRBtn" layoutX="291.0" layoutY="43.0" mnemonicParsing="false" onAction="#outsourcedRadioButtonSelected" selected="true" text="Outsourcesd" toggleGroup="$toggleGroup" />
+      <RadioButton fx:id="addPartOutsourcedRBtn" layoutX="291.0" layoutY="43.0" mnemonicParsing="false" onAction="#outsourcedRBtnS" selected="true" text="Outsourcesd" toggleGroup="$toggleGroup" />
       <Label fx:id="addPartCnameLbl" layoutX="26.0" layoutY="376.0" prefHeight="17.0" prefWidth="120.0" text="Company Name" />
       <Label layoutX="300.0" layoutY="330.0" text="Min" />
       <Label layoutX="54.0" layoutY="119.0" text="ID" />
