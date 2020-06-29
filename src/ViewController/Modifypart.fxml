@@ -8,13 +8,13 @@
       <AnchorPane id="AnchorPane" layoutX="10.0" layoutY="10.0" prefHeight="500.0" prefWidth="600.0">
          <children>
             <Label layoutX="35.0" layoutY="43.0" prefHeight="17.0" prefWidth="70.0" text="Modify Part" />
-            <RadioButton fx:id="InHouseRBtn" layoutX="138.0" layoutY="43.0" mnemonicParsing="false" text="In-House">
+            <RadioButton fx:id="InHouseRBtn" layoutX="138.0" layoutY="43.0" mnemonicParsing="false" onAction="#inHouseRBtnS" text="In-House">
                <toggleGroup>
                   <ToggleGroup fx:id="toggleGroup" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="OutsourcedRBtn" layoutX="291.0" layoutY="43.0" mnemonicParsing="false" selected="true" text="Outsourcesd" toggleGroup="$toggleGroup" />
-            <Label layoutX="52.0" layoutY="376.0" text="Company Name" />
+            <RadioButton fx:id="OutsourcedRBtn" layoutX="291.0" layoutY="43.0" mnemonicParsing="false" onAction="#outsourcedRBtnS" selected="true" text="Outsourcesd" toggleGroup="$toggleGroup" />
+            <Label fx:id="modifyPartCnameLbl" layoutX="52.0" layoutY="376.0" text="Company Name" />
             <Label layoutX="300.0" layoutY="330.0" text="Min" />
             <Label layoutX="54.0" layoutY="119.0" text="ID" />
             <Label layoutX="54.0" layoutY="175.0" text="Name" />

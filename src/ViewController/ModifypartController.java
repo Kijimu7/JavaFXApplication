@@ -6,11 +6,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
+import model.Part;
 
 import java.awt.event.ActionEvent;
 import java.io.IOException;
@@ -18,6 +16,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ModifypartController implements Initializable {
+
+    Part part;
+    private boolean isOutsourced = true;
+    private int index;
 
     Stage stage;
     Parent scene;
@@ -59,6 +61,21 @@ public class ModifypartController implements Initializable {
     private Button cancelBtn;
 
     @FXML
+    public Label modifyPartCnameLbl;
+
+    @FXML
+    void inHouseRBtnS(javafx.event.ActionEvent event) {
+        isOutsourced  = false;
+        modifyPartCnameLbl.setText("Machine ID");
+    }
+
+    @FXML
+    void outsourcedRBtnS(javafx.event.ActionEvent event) {
+        isOutsourced  = true;
+        modifyPartCnameLbl.setText("Company Name");
+    }
+
+    @FXML
     void modifyPartCancel(ActionEvent event) {
 
     }
@@ -98,6 +115,10 @@ public class ModifypartController implements Initializable {
 
     }
 
+
+
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -124,12 +145,27 @@ public class ModifypartController implements Initializable {
     public void modifyPartSave(javafx.event.ActionEvent actionEvent) {
     }
 
+    //public void cancelanction(ActionEvent e) thrwsIOException{
+//    if(DialogBoxes.confirmAction("Cancel")){
+//        ReturnToMainScreen(e);
+//    }
+
+//    public void ReturnToMainScreen(ActionEvent e) throuws IOExeption{
+//
+//    }
+
+    private void ReturnToMainScreen(javafx.event.ActionEvent event) throws IOException {
+        stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("MainScreen.fxml"));
+        stage.setScene(new Scene(scene));
+        stage.show();
+
+    }
+//        ReturnToMainScreen(event);
+
     public void modifyPartCancel(javafx.event.ActionEvent event) throws IOException {
 
-        stage = (Stage)((Button)event.getSource()).getScene().getWindow();
-        scene = FXMLLoader.load(getClass().getResource("MainScreen.fxml"));
-        stage.setScene(new Scene((Parent) scene));
-        stage.show();
+        ReturnToMainScreen(event);
     }
 
     public void modifyProductIdTxt(javafx.event.ActionEvent actionEvent) {

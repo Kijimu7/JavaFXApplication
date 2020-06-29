@@ -112,7 +112,7 @@ public class AddpartController implements Initializable {
         int id = random.nextInt(50);
 
 
-        if (isOutsourced == false) {
+        if (!isOutsourced) {
 
             InHouse newInHouse = new InHouse(0, "", 0, 0, 0, 0, 0);
 
@@ -142,14 +142,14 @@ public class AddpartController implements Initializable {
                 Inventory.addPart(newInHouse);
                 System.out.println("Part Added");
 
-                Stage stage;
-                Parent root;
-                stage = (Stage) addPartsaveBtn.getScene().getWindow();
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/ViewController/MainScreen.fxml"));
-                root = loader.load();
-                Scene scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
+//                Stage stage;
+//                Parent root;
+//                stage = (Stage) addPartsaveBtn.getScene().getWindow();
+//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/ViewController/MainScreen.fxml"));
+//                root = loader.load();
+//                Scene scene = new Scene(root);
+//                stage.setScene(scene);
+//                stage.show();
             }
 
             }else {
@@ -180,32 +180,37 @@ public class AddpartController implements Initializable {
                     Inventory.addPart(newOutsourced);
                     System.out.println("Part Added");
 
-                    Stage stage;
-                    Parent root;
-                    stage = (Stage) addPartsaveBtn.getScene().getWindow();
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/ViewController/MainScreen.fxml"));
-                    root = loader.load();
-                    Scene scene = new Scene(root);
-                    stage.setScene(scene);
-                    stage.show();
+
 
 
                 }
+//            Stage stage;
+//            Parent root;
+//            stage = (Stage) addPartsaveBtn.getScene().getWindow();
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ViewController/MainScreen.fxml"));
+//            root = loader.load();
+//            Scene scene = new Scene(root);
+//            stage.setScene(scene);
+//            stage.show();
 
-            }
+
+        } ReturnToMainScreen(event);
         }
 
+    private void ReturnToMainScreen(javafx.event.ActionEvent event) throws IOException {
+        stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("MainScreen.fxml"));
+        stage.setScene(new Scene(scene));
+        stage.show();
+
+    }
 
 
-        @FXML
+    @FXML
         public void onActionCancel(javafx.event.ActionEvent event) throws IOException {
 
-            stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-            scene = FXMLLoader.load(getClass().getResource("MainScreen.fxml"));
-            stage.setScene(new Scene(scene));
-            stage.show();
+        ReturnToMainScreen(event);
         }
-
 
 
 
@@ -294,7 +299,18 @@ public class AddpartController implements Initializable {
         return isValid;
     }
 
-}
+//    public void cancelanction(ActionEvent e) thrwsIOException{
+//    if(DialogBoxes.confirmAction("Cancel")){
+//        ReturnToMainScreen(e);
+    }
+
+
+
+
+
+
+
+
 
 
 
@@ -319,7 +335,6 @@ public class AddpartController implements Initializable {
 //        Inventory.addPart(newOutsourcedPart);
 //
 //    }
-
 
 
 
