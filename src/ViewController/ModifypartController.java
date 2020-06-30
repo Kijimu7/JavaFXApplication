@@ -52,7 +52,7 @@ public class ModifypartController implements Initializable {
     private TextField addPartnameTxt;
 
     @FXML
-    private TextField addPartIdTxt;
+    private TextField modifyPartIdTxt;
 
     @FXML
     private Button saveBtn;
@@ -73,6 +73,15 @@ public class ModifypartController implements Initializable {
     void outsourcedRBtnS(javafx.event.ActionEvent event) {
         isOutsourced  = true;
         modifyPartCnameLbl.setText("Company Name");
+    }
+
+    public void setPart(Part part){
+        this.part = part;
+
+
+        modifyPartIdTxt.setText(new Integer(part.getId()).toString());
+
+
     }
 
     @FXML
@@ -112,6 +121,9 @@ public class ModifypartController implements Initializable {
 
     @FXML
     void modifyPartSave(ActionEvent event) {
+        System.out.println("test");
+
+
 
     }
 
@@ -174,7 +186,13 @@ public class ModifypartController implements Initializable {
     public void modifyProductSearch(javafx.event.ActionEvent actionEvent) {
     }
 
+
+
+
+
+
     public void modifyProductSave(javafx.event.ActionEvent actionEvent) {
+        System.out.println("test");
     }
 
     public void modifyProductCancel(javafx.event.ActionEvent actionEvent) {

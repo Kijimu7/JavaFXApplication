@@ -21,13 +21,13 @@
             <Label layoutX="54.0" layoutY="330.0" text="Max" />
             <Label layoutX="54.0" layoutY="279.0" text="Price/Cost" />
             <Label layoutX="54.0" layoutY="225.0" prefHeight="17.0" prefWidth="32.0" text="Inv" />
-            <TextField fx:id="addPartMinTxt" layoutX="341.0" layoutY="326.0" onAction="#modifyPartMinTxt" prefHeight="25.0" prefWidth="86.0" />
-            <TextField fx:id="addPartPriceTxt" layoutX="164.0" layoutY="275.0" onAction="#modifyPartCostTxt" />
-            <TextField fx:id="addPartCompnNmeTxt" layoutX="164.0" layoutY="372.0" onAction="#modifyPartCompanyTxt" />
-            <TextField fx:id="maxTxt" layoutX="164.0" layoutY="326.0" onAction="#modifyPartMaxTxt" prefHeight="25.0" prefWidth="88.0" />
-            <TextField fx:id="InventoryTxt" layoutX="164.0" layoutY="221.0" onAction="#modifyPartInvTxt" />
-            <TextField fx:id="addPartnameTxt" layoutX="164.0" layoutY="171.0" onAction="#modifyPartNameTxt" />
-            <TextField fx:id="addPartIdTxt" disable="true" editable="false" layoutX="164.0" layoutY="115.0" />
+            <TextField fx:id="modifyPartMinTxt" layoutX="341.0" layoutY="326.0" onAction="#modifyPartMinTxt" prefHeight="25.0" prefWidth="86.0" />
+            <TextField fx:id="modifyPartPriceTxt" layoutX="164.0" layoutY="275.0" onAction="#modifyPartCostTxt" />
+            <TextField fx:id="modifyPartCompnNmeTxt" layoutX="164.0" layoutY="372.0" onAction="#modifyPartCompanyTxt" />
+            <TextField fx:id="modifyPartmaxTxt" layoutX="164.0" layoutY="326.0" onAction="#modifyPartMaxTxt" prefHeight="25.0" prefWidth="88.0" />
+            <TextField fx:id="modifyPartInventoryTxt" layoutX="164.0" layoutY="221.0" onAction="#modifyPartInvTxt" />
+            <TextField fx:id="modifyPartPartnameTxt" layoutX="164.0" layoutY="171.0" onAction="#modifyPartNameTxt" />
+            <TextField fx:id="modifyPartIdTxt" editable="false" layoutX="164.0" layoutY="115.0" />
             <Button fx:id="saveBtn" layoutX="313.0" layoutY="419.0" mnemonicParsing="false" onAction="#modifyPartSave" text="Save" />
             <Button fx:id="cancelBtn" layoutX="399.0" layoutY="419.0" mnemonicParsing="false" onAction="#modifyPartCancel" text="Cancel" />
          </children>
