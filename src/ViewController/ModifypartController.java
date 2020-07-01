@@ -1,6 +1,5 @@
 package ViewController;
 
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -8,6 +7,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import model.InHouse;
+import model.Outsourced;
 import model.Part;
 
 import java.awt.event.ActionEvent;
@@ -21,35 +22,41 @@ public class ModifypartController implements Initializable {
     private boolean isOutsourced = true;
     private int index;
 
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+    }
+
     Stage stage;
     Parent scene;
 
     @FXML
-    private RadioButton InHouseRBtn;
+    private RadioButton inHouseRBtn;
 
     @FXML
     private ToggleGroup toggleGroup;
 
     @FXML
-    private RadioButton OutsourcedRBtn;
+    private RadioButton outsourcedRBtn;
 
     @FXML
-    private TextField addPartMinTxt;
+    private TextField modifyPartMinTxt;
 
     @FXML
-    private TextField addPartPriceTxt;
+    private TextField modifyPartPriceTxt;
 
     @FXML
-    private TextField addPartCompnNmeTxt;
+    private TextField modifyPartDynamicTxt;
 
     @FXML
-    private TextField maxTxt;
+    private TextField modifyPartMaxTxt;
 
     @FXML
-    private TextField InventoryTxt;
+    private TextField modifyPartInvTxt;
 
     @FXML
-    private TextField addPartnameTxt;
+    private TextField modifyPartNameTxt;
 
     @FXML
     private TextField modifyPartIdTxt;
@@ -62,6 +69,14 @@ public class ModifypartController implements Initializable {
 
     @FXML
     public Label modifyPartCnameLbl;
+
+
+    @FXML
+    void modifyPartSave(javafx.event.ActionEvent event) throws IOException{
+
+        System.out.println("test");
+
+    }
 
     @FXML
     void inHouseRBtnS(javafx.event.ActionEvent event) {
@@ -80,9 +95,26 @@ public class ModifypartController implements Initializable {
 
 
         modifyPartIdTxt.setText(new Integer(part.getId()).toString());
+        modifyPartNameTxt.setText(part.getName());
+        modifyPartInvTxt.setText(new Integer(part.getInv()).toString());
+        modifyPartPriceTxt.setText(new Double(part.getPrice()).toString());
+        modifyPartMaxTxt.setText(new Integer(part.getMax()).toString());
+        modifyPartMinTxt.setText(new Integer(part.getMin()).toString());
+
+        if(part instanceof InHouse){
+            inHouseRBtn.fire();
+            modifyPartDynamicTxt.setText(String.valueOf(((InHouse)part).getMachineId()));
+        }else{
+            outsourcedRBtn.fire();
+            modifyPartDynamicTxt.setText(String.valueOf(((Outsourced)part).getMachineId()));
+        }
+
+
 
 
     }
+
+
 
     @FXML
     void modifyPartCancel(ActionEvent event) {
@@ -119,22 +151,12 @@ public class ModifypartController implements Initializable {
 
     }
 
-    @FXML
-    void modifyPartSave(ActionEvent event) {
-        System.out.println("test");
-
-
-
-    }
 
 
 
 
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
 
-    }
 
     public void modifyPartMinTxt(javafx.event.ActionEvent actionEvent) {
     }
@@ -154,8 +176,6 @@ public class ModifypartController implements Initializable {
     public void modifyPartNameTxt(javafx.event.ActionEvent actionEvent) {
     }
 
-    public void modifyPartSave(javafx.event.ActionEvent actionEvent) {
-    }
 
     //public void cancelanction(ActionEvent e) thrwsIOException{
 //    if(DialogBoxes.confirmAction("Cancel")){
