@@ -25,10 +25,10 @@
             <TextField fx:id="modifyPartPriceTxt" layoutX="164.0" layoutY="275.0" onAction="#modifyPartCostTxt" />
             <TextField fx:id="modifyPartDynamicTxt" layoutX="164.0" layoutY="372.0" onAction="#modifyPartCompanyTxt" />
             <TextField fx:id="modifyPartMaxTxt" layoutX="164.0" layoutY="326.0" onAction="#modifyPartMaxTxt" prefHeight="25.0" prefWidth="88.0" />
-            <TextField fx:id="modifyPartInventoryTxt" layoutX="164.0" layoutY="221.0" onAction="#modifyPartInvTxt" />
-            <TextField fx:id="modifyPartPartNameTxt" layoutX="164.0" layoutY="171.0" onAction="#modifyPartNameTxt" />
+            <TextField fx:id="modifyPartInvTxt" layoutX="164.0" layoutY="221.0" onAction="#modifyPartInvOnAction" />
+            <TextField fx:id="modifyPartNameTxt" layoutX="164.0" layoutY="171.0" onAction="#modifyPartNameOnAction" />
             <TextField fx:id="modifyPartIdTxt" editable="false" layoutX="164.0" layoutY="115.0" />
-            <Button fx:id="saveBtn" layoutX="313.0" layoutY="419.0" mnemonicParsing="false" onAction="#modifyPartSave" text="Save" />
+            <Button fx:id="saveBtn" layoutX="313.0" layoutY="419.0" mnemonicParsing="false" onAction="#modifyPartSave" onMouseClicked="#modifyPartSave" text="Save" />
             <Button fx:id="cancelBtn" layoutX="399.0" layoutY="419.0" mnemonicParsing="false" onAction="#modifyPartCancel" text="Cancel" />
          </children>
       </AnchorPane>

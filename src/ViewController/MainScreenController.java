@@ -167,6 +167,9 @@ public class MainScreenController implements Initializable {
     @FXML
     void partOnActionModify(ActionEvent event) throws IOException{
 
+
+
+
         stage = (Stage)(( Button)event.getSource()).getScene().getWindow();
         scene = FXMLLoader.load(getClass().getResource("/ViewController/Modifypart.fxml"));
         stage.setScene(new Scene(scene));

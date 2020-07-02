@@ -18,7 +18,7 @@ public abstract class Part {
    private int  inv;
    private int min;
    private int max;
-   private int machineId;
+
 
 
    //Constructors
@@ -53,9 +53,7 @@ public abstract class Part {
    public int getMax(){
       return max;
    }
-   public int getMachineId(){
-      return machineId;
-   }
+
 
    //setters
    public void setId(int id){
@@ -89,7 +87,5 @@ public abstract class Part {
    }
 
 
-   public void setMachineId(int machineId) {
-      this.machineId = machineId;
-   }
+
 }
