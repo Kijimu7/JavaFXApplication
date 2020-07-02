@@ -178,11 +178,6 @@ public class MainScreenController implements Initializable {
         stage.show();
 
 
-//        stage = (Stage)(( Button)event.getSource()).getScene().getWindow();
-//        scene = FXMLLoader.load(getClass().getResource("/ViewController/Modifypart.fxml"));
-//        stage.setScene(new Scene(scene));
-//        stage.show();
-
     }
 
     //Part table search button

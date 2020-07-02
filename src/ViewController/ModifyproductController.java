@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.Product;
 
 import java.io.IOException;
 import java.net.URL;
@@ -18,6 +19,7 @@ import java.util.ResourceBundle;
 
 public class ModifyproductController implements Initializable {
 
+    public static Product productToUpdate;
     Stage stage;
     Parent scene;
 
