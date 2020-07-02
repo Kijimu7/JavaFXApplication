@@ -8,7 +8,7 @@
       <AnchorPane id="AnchorPane" layoutX="10.0" layoutY="10.0" prefHeight="500.0" prefWidth="600.0">
          <children>
             <Label layoutX="35.0" layoutY="43.0" prefHeight="17.0" prefWidth="70.0" text="Modify Part" />
-            <RadioButton fx:id="InHouseRBtn" layoutX="138.0" layoutY="43.0" mnemonicParsing="false" onAction="#inHouseRBtnS" text="In-House">
+            <RadioButton fx:id="inHouseRBtn" layoutX="138.0" layoutY="43.0" mnemonicParsing="false" onAction="#inHouseRBtnS" text="In-House">
                <toggleGroup>
                   <ToggleGroup fx:id="toggleGroup" />
                </toggleGroup>

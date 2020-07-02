@@ -52,24 +52,22 @@ InventoryProgram extends Application {
         //Add InHouse Parts
         InHouse part1 = new InHouse(1, "part1", 5.00, 10, 1, 100, 101);
         InHouse part2 = new InHouse(2, "part2", 6.00, 20, 1, 100, 102);
-        InHouse part3 = new InHouse(3, "part3", 7.00, 30, 1, 100, 103);
+
 
 
         Inventory.addPart(part1);
         Inventory.addPart(part2);
-        Inventory.addPart(part3);
+
 
 
         //Outsourced parts
-        Outsourced part6 = new Outsourced(6, "part6", 10.00, 60, 1, 100, "company1");
-        Outsourced part7 = new Outsourced(7, "part7", 11.00, 70, 1, 100, "company2");
-        Outsourced part8 = new Outsourced(8, "part8", 12.00, 80, 1, 100, "company3");
+        Outsourced part3 = new Outsourced(6, "part3", 10.00, 60, 1, 100, "company1");
 
 
 
-        Inventory.addPart(part6);
-        Inventory.addPart(part7);
-        Inventory.addPart(part8);
+
+        Inventory.addPart(part3);
+
 
 
         //Products
@@ -77,14 +75,12 @@ InventoryProgram extends Application {
         Product product1 = new Product(1, "product1", 6.00, 20, 1, 100);
         Product product2 = new Product(2, "product2", 5.00, 10, 1, 100);
         Product product3 = new Product(3, "product3", 7.00, 30, 1, 100);
-        Product product4 = new Product(4, "product4", 8.00, 40, 1, 100);
-        Product product5 = new Product(5, "product5", 9.00, 50, 1, 100);
+
 
         Inventory.addProduct(product1);
         Inventory.addProduct(product2);
         Inventory.addProduct(product3);
-        Inventory.addProduct(product4);
-        Inventory.addProduct(product5);
+
 
 
 
