@@ -118,10 +118,11 @@ private void generateAssociatedPart2Table(){
 
 
     public void addProductAddBtnOnAction(ActionEvent actionEvent) {
+
         Part selectedPart = (Part) addProductPartTable.getSelectionModel().getSelectedItem();
 
         newProduct.addAssociatedPart(selectedPart);
-        generateAssociatedPartTable();
+        generateAssociatedPart2Table();
         addProductPartTable.refresh();
 
     }
