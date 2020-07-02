@@ -9,7 +9,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import model.InHouse;
 import model.Inventory;
 import model.Part;
 import model.Product;
@@ -188,18 +187,20 @@ private void generateAssociatedPart2Table(){
         }
 
 
+
     public void AddProductSearchOnAction(ActionEvent actionEvent) {
+
         String searchedProduct = AddProductSearchTxt.getText();
-        for(Product product : Inventory.getAllProducts()){
-            if(product.getName().equals(searchedProduct)||Integer.toString(product.getId()).equals(searchedProduct)){
-                addProductPartTable.getSelectionModel().select(product);
+        for(Part part : Inventory.getAllParts()){
+            if(part.getName().equals(searchedProduct)||Integer.toString(part.getId()).equals(searchedProduct)){
+                addProductPartTable.getSelectionModel().select(part);
             }
         }
 
 
     }
 
-    private boolean invnetoryisValid(String productInv, String productMin, String productMax, String productName) {
+    private boolean inventoryisValid(String productInv, String productMin, String productMax, String productName) {
 
         String errorMessage = "";
         Integer intMin = null, intMax = null;
