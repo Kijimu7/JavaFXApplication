@@ -148,8 +148,6 @@ private void generateAssociatedPart2Table(){
 
     public void addProductSaveBtnOnAction(ActionEvent actionEvent) throws IOException {
 
-
-
     //Create auto Ids
     Random random = new Random();
     int id = random.nextInt(50);
@@ -200,16 +198,67 @@ private void generateAssociatedPart2Table(){
 
     }
 
-    private boolean inventoryisValid(String productInv, String productMin, String productMax, String productName) {
+    private boolean inventoryisValid( String productName, String productMax, String productMin, String productInv) {
 
         String errorMessage = "";
         Integer intMin = null, intMax = null;
         boolean inventoryisValid = false;
 
-        return inventoryisValid;
-    }
  
 
+
+
+        try {
+        intMin = Integer.parseInt(productMin);
+    } catch (NumberFormatException e) {
+        errorMessage += ("Min must a number\n");
+    }
+
+        try {
+        intMax = Integer.parseInt(productMax);
+    } catch (NumberFormatException e) {
+        errorMessage += ("Maximum must be a number\n");
+    }
+
+        try {
+        if (intMin > intMax) {
+            errorMessage += ("Minimum must be less than maximum \n");
+        }
+        if (intMin < 0 || intMax < 0) {
+            errorMessage += ("Quantity cannot be less than zero\n");
+        }
+    } catch (NullPointerException e) {
+        errorMessage += ("Min and Max cannot be less than zero \n");
+    }
+        try {
+        int intInv = Integer.parseInt(productInv);
+
+        if (intMax != null && intMin != null) {
+            if (intInv < intMin || intInv > intMax) {
+                errorMessage += ("Inventory must be between minimum and maximum \n");
+            }
+        } else {
+            errorMessage += ("Inventory cannot be blank \n");
+        }
+    } catch (NumberFormatException e) {
+        errorMessage += ("Inventory cannot be blank and must be a number\n");
+    }
+
+
+        if (errorMessage.isEmpty() == true) {
+        inventoryisValid = true;
+    } else {
+        inventoryisValid = false;
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Part Validation error");
+        alert.setHeaderText("Error");
+        alert.setContentText(errorMessage);
+        alert.showAndWait();
+    }
+
+        return inventoryisValid;
+
+}
 
     public void addProductCancel(ActionEvent event) throws IOException
 
