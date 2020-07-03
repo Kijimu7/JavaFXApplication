@@ -9,8 +9,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import model.Inventory;
+import model.Part;
 import model.Product;
 
 import java.io.IOException;
@@ -20,8 +24,18 @@ import java.util.ResourceBundle;
 public class ModifyproductController implements Initializable {
 
     public static Product productToUpdate;
+
+
+    Product product;
+    private int index;
     Stage stage;
     Parent scene;
+
+    @FXML
+    private TableView<Part> modifyProductPartTbl;
+
+    @FXML
+    public TableView modifyProductTbl;
 
     @FXML
     private TextField modifyProductMin;
@@ -86,32 +100,68 @@ public class ModifyproductController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        generateAssociatedPartTable();
+        generateAssociatedPart2Table();
 
     }
 
+    private void generateAssociatedPartTable() {
 
-
-    public void modifyProductIdTxt(ActionEvent actionEvent) {
-    }
-
-    public void modifyProductSearch(ActionEvent actionEvent) {
-    }
-
-    public void modifyProductSave(ActionEvent actionEvent) {
-    }
-
-    public void modifyProductDelete(ActionEvent actionEvent) {
-    }
-
-    public void modifyProductAdd(ActionEvent actionEvent) {
-    }
-
-    public void modifyProductCancel(ActionEvent event) throws IOException {
-
-        stage = (Stage)((Button)event.getSource()).getScene().getWindow();
-        scene = FXMLLoader.load(getClass().getResource("MainScreen.fxml"));
-        stage.setScene(new Scene((Parent) scene));
-        stage.show();
+        modifyProductPartTbl.setItems(Inventory.getAllParts());
+        modifyProductIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        modifyProductNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        modifyProductInvCol.setCellValueFactory(new PropertyValueFactory<>("inv"));
+        modifyProductPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
+        modifyProductPartTbl.refresh();
 
     }
-}
+
+    private void generateAssociatedPart2Table() {
+        if (!product.getAllAssociatedParts().isEmpty()) {
+            modifyProductTbl.setItems(product.getAllAssociatedParts());
+            modifyProductIdCol2.setCellValueFactory(new PropertyValueFactory<>("id"));
+            modifyProductNameCol2.setCellValueFactory(new PropertyValueFactory<>("name"));
+            modifyProductInvCol2.setCellValueFactory(new PropertyValueFactory<>("inv"));
+            modifyProductPriceCol2.setCellValueFactory(new PropertyValueFactory<>("price"));
+
+        }
+    }
+        @FXML
+        public void modifyProductAdd(ActionEvent event) {
+
+            Part selectedPart = (Part) modifyProductPartTbl.getSelectionModel().getSelectedItem();
+
+            Product.addAssociatedPart(selectedPart);
+            generateAssociatedPartTable();
+            modifyProductPartTbl.refresh();
+
+        }
+
+
+
+
+
+
+        public void modifyProductIdTxt (ActionEvent actionEvent){
+        }
+
+        public void modifyProductSearch (ActionEvent actionEvent){
+        }
+
+        public void modifyProductSave (ActionEvent actionEvent){
+        }
+
+        public void modifyProductDelete (ActionEvent actionEvent){
+        }
+
+
+        public void modifyProductCancel (ActionEvent event) throws IOException {
+
+            stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+            scene = FXMLLoader.load(getClass().getResource("MainScreen.fxml"));
+            stage.setScene(new Scene((Parent) scene));
+            stage.show();
+
+        }
+    }
+

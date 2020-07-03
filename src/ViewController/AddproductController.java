@@ -93,16 +93,6 @@ public class AddproductController implements Initializable {
 
     }
 
-private void generateAssociatedPart2Table(){
-        if(!newProduct.getAllAssociatedParts().isEmpty()){
-            deletePartProductTable.setItems(newProduct.getAllAssociatedParts());
-            addProductIdCol2.setCellValueFactory(new PropertyValueFactory<>("id"));
-            addProductNameCol2.setCellValueFactory(new PropertyValueFactory<>("name"));
-            addProductInvCol2.setCellValueFactory(new PropertyValueFactory<>("inv"));
-            addProductPriceCol2.setCellValueFactory(new PropertyValueFactory<>("price"));
-
-        }
-}
 
     private void generateAssociatedPartTable(){
 
@@ -116,7 +106,16 @@ private void generateAssociatedPart2Table(){
 
         }
 
+    private void generateAssociatedPart2Table(){
+        if(!newProduct.getAllAssociatedParts().isEmpty()){
+            deletePartProductTable.setItems(newProduct.getAllAssociatedParts());
+            addProductIdCol2.setCellValueFactory(new PropertyValueFactory<>("id"));
+            addProductNameCol2.setCellValueFactory(new PropertyValueFactory<>("name"));
+            addProductInvCol2.setCellValueFactory(new PropertyValueFactory<>("inv"));
+            addProductPriceCol2.setCellValueFactory(new PropertyValueFactory<>("price"));
 
+        }
+    }
     public void addProductAddBtnOnAction(ActionEvent actionEvent) {
 
         Part selectedPart = (Part) addProductPartTable.getSelectionModel().getSelectedItem();
