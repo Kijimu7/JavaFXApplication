@@ -78,9 +78,10 @@ public class Product {
     }
 
     //delete
-    public static void deleteAssociatedPart(Part selectedAssociatedPart)
+    public static boolean deleteAssociatedPart(Part selectedAssociatedPart)
     {
-        //boolean
+        associatedParts.remove(selectedAssociatedPart);
+        return true;
     }
 
     //get

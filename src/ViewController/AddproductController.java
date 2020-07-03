@@ -137,13 +137,12 @@ private void generateAssociatedPart2Table(){
 
         Optional<ButtonType> result = alert.showAndWait();
         if(result.get() == ButtonType.OK){
-            Product productToDelete= (Product) deletePartProductTable.getSelectionModel().getSelectedItem();
-            Inventory.deleteProduct(productToDelete);
+            Part selectedPart= (Part) deletePartProductTable.getSelectionModel().getSelectedItem();
+            newProduct.deleteAssociatedPart(selectedPart);
             addProductPartTable.refresh();
         }
 
     }
-
 
 
 
