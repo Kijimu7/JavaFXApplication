@@ -131,6 +131,7 @@ public class MainScreenController implements Initializable {
     @FXML
     void modifyHandler(MouseEvent event) {
 
+
     }
 
     @FXML
@@ -221,6 +222,8 @@ public class MainScreenController implements Initializable {
 
     @FXML
     void productOnActionModify(ActionEvent event) throws IOException {
+
+
 
         stage = (Stage)(( Button)event.getSource()).getScene().getWindow();
         scene = FXMLLoader.load(getClass().getResource("/ViewController/Modifyproduct.fxml"));

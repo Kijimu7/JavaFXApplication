@@ -19,6 +19,7 @@ import java.util.ResourceBundle;
 
 public class ModifypartController implements Initializable {
 
+
     Part part;
     private boolean isOutsourced = true;
     private int index = 0;

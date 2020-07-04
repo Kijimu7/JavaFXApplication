@@ -47,7 +47,7 @@
                   <Button fx:id="modifyProductCancelBtn" layoutX="952.0" layoutY="502.0" mnemonicParsing="false" onAction="#modifyProductCancel" text="Cancel" />
                   <Button fx:id="modifyProductDeleteBtn" layoutX="952.0" layoutY="472.0" mnemonicParsing="false" onAction="#modifyProductDelete" text="Delete" />
                   <Button fx:id="modifyProductAddBtn" layoutX="952.0" layoutY="252.0" mnemonicParsing="false" onAction="#modifyProductAdd" text="Add" />
-                  <TextField fx:id="ModifyProductSearchTxt" layoutX="780.0" layoutY="30.0" />
+                  <TextField fx:id="ModifyProductSearchTxt" layoutX="780.0" layoutY="30.0" onAction="#ModifyProductSearchAction" />
                </children>
             </AnchorPane>
          </children>
