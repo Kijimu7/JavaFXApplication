@@ -32,6 +32,8 @@ public abstract class Part {
    }
 
 
+
+
 //Declare methods
 
    //getters

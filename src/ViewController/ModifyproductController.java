@@ -35,7 +35,7 @@ public class ModifyproductController implements Initializable {
     private TableView<Part> modifyProductPartTbl;
 
     @FXML
-    public TableView modifyProductTbl;
+    public TableView<Part> modifyProductTbl;
 
     @FXML
     private TextField modifyProductMin;
@@ -117,8 +117,8 @@ public class ModifyproductController implements Initializable {
     }
 
     private void generateAssociatedPart2Table() {
-        if (!product.getAllAssociatedParts().isEmpty()) {
-            modifyProductTbl.setItems(product.getAllAssociatedParts());
+        if (!Product.getAllAssociatedParts().isEmpty()) {
+            modifyProductTbl.setItems(Product.getAllAssociatedParts());
             modifyProductIdCol2.setCellValueFactory(new PropertyValueFactory<>("id"));
             modifyProductNameCol2.setCellValueFactory(new PropertyValueFactory<>("name"));
             modifyProductInvCol2.setCellValueFactory(new PropertyValueFactory<>("inv"));
@@ -127,19 +127,14 @@ public class ModifyproductController implements Initializable {
         }
     }
         @FXML
-        public void modifyProductAdd(ActionEvent event) {
+        public void modifyProductAdd(ActionEvent actionEvent) {
 
             Part selectedPart = (Part) modifyProductPartTbl.getSelectionModel().getSelectedItem();
 
             Product.addAssociatedPart(selectedPart);
-            generateAssociatedPartTable();
-            modifyProductPartTbl.refresh();
+            generateAssociatedPart2Table();
 
         }
-
-
-
-
 
 
         public void modifyProductIdTxt (ActionEvent actionEvent){
