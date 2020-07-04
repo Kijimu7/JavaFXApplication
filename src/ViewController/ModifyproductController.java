@@ -96,6 +96,8 @@ public class ModifyproductController implements Initializable {
     @FXML
     private TextField ModifyProductSearchTxt;
     private Object Product;
+    private String productName;
+    private String productPrice;
 
 
     @Override
@@ -151,20 +153,23 @@ public class ModifyproductController implements Initializable {
 
 
 
-            if (inventoryisValid(modifyProductName.getText(), modifyProductInv.getText(), modifyProductMin.getText(), modifyProductMax.getText())) {
+            if (inventoryisValid(modifyProductName.getText(), modifyProductInv.getText(), modifyProductPrice.getText(), modifyProductMax.getText(), modifyProductMin.getText())) {
 
                 modifiedProduct.setId(id);
                 if (!modifyProductName.getText().isEmpty()) {
                     modifiedProduct.setName(modifyProductName.getText());
                 }
                 if (!modifyProductInv.getText().isEmpty()) {
-                    modifiedProduct.setPrice(Double.parseDouble(modifyProductInv.getText()));
+                    modifiedProduct.setInv(Integer.parseInt(modifyProductInv.getText()));
                 }
-                if (!modifyProductMin.getText().isEmpty()) {
-                    modifiedProduct.setInv(Integer.parseInt(modifyProductMin.getText()));
+                if (!modifyProductPrice.getText().isEmpty()) {
+                    modifiedProduct.setPrice(Double.parseDouble(modifyProductPrice.getText()));
                 }
                 if (!modifyProductMax.getText().isEmpty()) {
-                    modifiedProduct.setMin(Integer.parseInt(modifyProductMax.getText()));
+                    modifiedProduct.setMax(Integer.parseInt(modifyProductMax.getText()));
+                }
+                if (!modifyProductMin.getText().isEmpty()) {
+                    modifiedProduct.setMin(Integer.parseInt(modifyProductMin.getText()));
                 }
 
 
@@ -229,11 +234,13 @@ public class ModifyproductController implements Initializable {
 
         }
 
-    private boolean inventoryisValid( String productName, String productMax, String productMin, String productInv) {
+    private boolean inventoryisValid( String productName, String productInv, String productPrice, String productMax, String productMin) {
+        this.productName = productName;
+        this.productPrice = productPrice;
 
         String errorMessage = "";
         Integer intMin = null, intMax = null;
-        boolean inventoryisValid = false;
+        boolean inventoryisValid;
 
 
 

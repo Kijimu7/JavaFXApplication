@@ -7,10 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import model.InHouse;
-import model.Inventory;
-import model.Outsourced;
-import model.Part;
+import model.*;
 
 import java.awt.event.ActionEvent;
 import java.io.IOException;
@@ -331,10 +328,6 @@ public class ModifypartController implements Initializable {
 
 
 
-
-
-
-
     public void modifyPartMinTxt(javafx.event.ActionEvent actionEvent) {
     }
 
@@ -402,4 +395,6 @@ public class ModifypartController implements Initializable {
 
     public void modifyPartNameOnAction(javafx.event.ActionEvent actionEvent) {
     }
+
+
 }

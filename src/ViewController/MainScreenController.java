@@ -224,13 +224,25 @@ public class MainScreenController implements Initializable {
     void productOnActionModify(ActionEvent event) throws IOException {
 
 
+        try {
+            Product selectedProduct = table1.getSelectionModel().getSelectedItem();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ViewController/Modifyproduct.fxml"));
+            Parent root = loader.load();
 
-        stage = (Stage)(( Button)event.getSource()).getScene().getWindow();
-        scene = FXMLLoader.load(getClass().getResource("/ViewController/Modifyproduct.fxml"));
-        stage.setScene(new Scene(scene));
-        stage.show();
+
+            Stage stage = new Stage();
+            ModifyproductController controller = loader.getController();
+            controller.setProduct(selectedProduct);
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (NullPointerException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Dialog");
+            alert.setContentText("Please select an item");
+            alert.showAndWait();
+        }
     }
-
     //Product table search
     @FXML
     void productOnActionSearch(ActionEvent event) {

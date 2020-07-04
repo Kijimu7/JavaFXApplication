@@ -24,7 +24,7 @@ public class AddproductController implements Initializable {
     public TableView deletePartProductTable;
     public TableView addProductPartTable;
 
-    Product newProduct = new Product(0,",",0,0,0,0);
+    Product newProduct;
 
     Stage stage;
     Parent scene;
@@ -85,6 +85,13 @@ public class AddproductController implements Initializable {
 
     @FXML
     private TextField AddProductSearchTxt;
+    private String productName;
+    private String productPrice;
+
+    public AddproductController() {
+        newProduct = new Product(0," ",0,0,0,0);
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         generateAssociatedPartTable();
@@ -152,20 +159,23 @@ public class AddproductController implements Initializable {
     int id = random.nextInt(50);
 
 
-        if (inventoryisValid(addProductName.getText(), addProductInv.getText(), addProductMin.getText(), addProductMax.getText())) {
+        if (inventoryisValid(addProductName.getText(), addProductInv.getText(), addProductPrice.getText(), addProductMax.getText(), addProductMin.getText())) {
 
             newProduct.setId(id);
             if (!addProductName.getText().isEmpty()) {
                 newProduct.setName(addProductName.getText());
             }
             if (!addProductInv.getText().isEmpty()) {
-                newProduct.setPrice(Double.parseDouble(addProductInv.getText()));
+                newProduct.setInv(Integer.parseInt(addProductInv.getText()));
             }
-            if (!addProductMin.getText().isEmpty()) {
-                newProduct.setInv(Integer.parseInt(addProductMin.getText()));
+            if (!addProductPrice.getText().isEmpty()) {
+                newProduct.setPrice(Double.parseDouble(addProductPrice.getText()));
             }
             if (!addProductMax.getText().isEmpty()) {
-                newProduct.setMin(Integer.parseInt(addProductMax.getText()));
+                newProduct.setMax(Integer.parseInt(addProductMax.getText()));
+            }
+            if (!addProductMin.getText().isEmpty()) {
+                newProduct.setMin(Integer.parseInt(addProductMin.getText()));
             }
 
 
@@ -197,13 +207,14 @@ public class AddproductController implements Initializable {
 
     }
 
-    private boolean inventoryisValid( String productName, String productMax, String productMin, String productInv) {
+    private boolean inventoryisValid( String productName, String productInv, String productPrice, String productMax,  String productMin) {
+        this.productName = productName;
+        this.productPrice = productPrice;
 
         String errorMessage = "";
         Integer intMin = null, intMax = null;
-        boolean inventoryisValid = false;
+        boolean inventoryisValid;
 
- 
 
 
 
