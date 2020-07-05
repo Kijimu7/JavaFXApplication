@@ -115,36 +115,19 @@ public class ModifypartController implements Initializable {
                     modifyPartMaxTxt.getText(), modifyPartDynamicTxt.getText())) {
 
 
-                if (!modifyPartNameTxt.getText().isEmpty()) {
-                    newInHouse.setName(modifyPartNameTxt.getText());
-                }
-                if (!modifyPartPriceTxt.getText().isEmpty()) {
-                    newInHouse.setPrice(Double.parseDouble(modifyPartPriceTxt.getText()));
-                }
-                if (!modifyPartInvTxt.getText().isEmpty()) {
-                    newInHouse.setInv(Integer.parseInt(modifyPartInvTxt.getText()));
-                }
-                if (!modifyPartMinTxt.getText().isEmpty()) {
-                    newInHouse.setMin(Integer.parseInt(modifyPartMinTxt.getText()));
-                }
-                if (!modifyPartMaxTxt.getText().isEmpty()) {
-                    newInHouse.setMax(Integer.parseInt(modifyPartMaxTxt.getText()));
-                }
-                if (!modifyPartDynamicTxt.getText().isEmpty()) {
-                    newInHouse.setMachineId(Integer.parseInt(modifyPartDynamicTxt.getText()));
-                }
+                table(newInHouse, modifyPartNameTxt, modifyPartPriceTxt, modifyPartInvTxt, modifyPartMinTxt, modifyPartMaxTxt, modifyPartDynamicTxt);
 
-                Inventory.updatePart(index, newInHouse);
-                System.out.println("Part modified");
-
-                Stage stage;
-                Parent root;
-                stage = (Stage) saveBtn.getScene().getWindow();
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/ViewController/MainScreen.fxml"));
-                root = loader.load();
-                Scene scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
+//                Inventory.updatePart(index, newInHouse);
+//                System.out.println("Part modified");
+//
+//                Stage stage;
+//                Parent root;
+//                stage = (Stage) saveBtn.getScene().getWindow();
+//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/ViewController/MainScreen.fxml"));
+//                root = loader.load();
+//                Scene scene = new Scene(root);
+//                stage.setScene(scene);
+//                stage.show();
             }
 
         }else {
@@ -153,27 +136,16 @@ public class ModifypartController implements Initializable {
             if (isValid(modifyPartNameTxt.getText(), modifyPartPriceTxt.getText(), modifyPartInvTxt.getText(), modifyPartMinTxt.getText(), modifyPartMaxTxt.getText(), modifyPartDynamicTxt.getText())) {
 
 
-                if (!modifyPartNameTxt.getText().isEmpty()) {
-                    newOutsourced.setName(modifyPartNameTxt.getText());
-                }
-                if (!modifyPartPriceTxt.getText().isEmpty()) {
-                    newOutsourced.setPrice(Double.parseDouble(modifyPartPriceTxt.getText()));
-                }
-                if (!modifyPartInvTxt.getText().isEmpty()) {
-                    newOutsourced.setInv(Integer.parseInt(modifyPartInvTxt.getText()));
-                }
-                if (!modifyPartMinTxt.getText().isEmpty()) {
-                    newOutsourced.setMin(Integer.parseInt(modifyPartMinTxt.getText()));
-                }
-                if (!modifyPartMaxTxt.getText().isEmpty()) {
-                    newOutsourced.setMax(Integer.parseInt(modifyPartMaxTxt.getText()));
-                }
-                if (!modifyPartDynamicTxt.getText().isEmpty()) {
-                    newOutsourced.setCompanyName(modifyPartDynamicTxt.getText());
-                }
+                table(newOutsourced, modifyPartNameTxt, modifyPartPriceTxt, modifyPartInvTxt, modifyPartMinTxt, modifyPartMaxTxt, modifyPartDynamicTxt);
 
                 Inventory.updatePart(index, newOutsourced);
                 System.out.println("Part modified");
+
+//                Paret tableViewParet loader = new FXMLLoader(getClass().getResource("/ViewController/MainScreen.fxml"));
+//                Stage window = (Stage)((Node).eventgetSource()).getScene.getWindow();
+//
+//                window.setScene(tableViewScene);
+//                window.show();
 
                 Stage stage;
                 Parent root;
@@ -190,6 +162,47 @@ public class ModifypartController implements Initializable {
         }
     }
 
+    static void table(InHouse newInHouse, TextField modifyPartNameTxt, TextField modifyPartPriceTxt, TextField modifyPartInvTxt, TextField modifyPartMinTxt, TextField modifyPartMaxTxt, TextField modifyPartDynamicTxt) {
+        if (!modifyPartNameTxt.getText().isEmpty()) {
+            newInHouse.setName(modifyPartNameTxt.getText());
+        }
+        if (!modifyPartPriceTxt.getText().isEmpty()) {
+            newInHouse.setPrice(Double.parseDouble(modifyPartPriceTxt.getText()));
+        }
+        if (!modifyPartInvTxt.getText().isEmpty()) {
+            newInHouse.setInv(Integer.parseInt(modifyPartInvTxt.getText()));
+        }
+        if (!modifyPartMinTxt.getText().isEmpty()) {
+            newInHouse.setMin(Integer.parseInt(modifyPartMinTxt.getText()));
+        }
+        if (!modifyPartMaxTxt.getText().isEmpty()) {
+            newInHouse.setMax(Integer.parseInt(modifyPartMaxTxt.getText()));
+        }
+        if (!modifyPartDynamicTxt.getText().isEmpty()) {
+            newInHouse.setMachineId(Integer.parseInt(modifyPartDynamicTxt.getText()));
+        }
+    }
+
+    static void table(Outsourced newOutsourced, TextField modifyPartNameTxt, TextField modifyPartPriceTxt, TextField modifyPartInvTxt, TextField modifyPartMinTxt, TextField modifyPartMaxTxt, TextField modifyPartDynamicTxt) {
+        if (!modifyPartNameTxt.getText().isEmpty()) {
+            newOutsourced.setName(modifyPartNameTxt.getText());
+        }
+        if (!modifyPartPriceTxt.getText().isEmpty()) {
+            newOutsourced.setPrice(Double.parseDouble(modifyPartPriceTxt.getText()));
+        }
+        if (!modifyPartInvTxt.getText().isEmpty()) {
+            newOutsourced.setInv(Integer.parseInt(modifyPartInvTxt.getText()));
+        }
+        if (!modifyPartMinTxt.getText().isEmpty()) {
+            newOutsourced.setMin(Integer.parseInt(modifyPartMinTxt.getText()));
+        }
+        if (!modifyPartMaxTxt.getText().isEmpty()) {
+            newOutsourced.setMax(Integer.parseInt(modifyPartMaxTxt.getText()));
+        }
+        if (!modifyPartDynamicTxt.getText().isEmpty()) {
+            newOutsourced.setCompanyName(modifyPartDynamicTxt.getText());
+        }
+    }
 
 
     private boolean isValid(String partName, String partPrice, String partInv, String partMin, String partMax, String toggleGroup ) {

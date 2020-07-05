@@ -121,24 +121,7 @@ public class AddpartController implements Initializable {
                     addPartMaxTxt.getText(), addPartDynamicTxt.getText())) {
 
                 newInHouse.setId(id);
-                if (!addPartNameTxt.getText().isEmpty()) {
-                    newInHouse.setName(addPartNameTxt.getText());
-                }
-                if (!addPartPriceTxt.getText().isEmpty()) {
-                    newInHouse.setPrice(Double.parseDouble(addPartPriceTxt.getText()));
-                }
-                if (!addPartInvTxt.getText().isEmpty()) {
-                    newInHouse.setInv(Integer.parseInt(addPartInvTxt.getText()));
-                }
-                if (!addPartMinTxt.getText().isEmpty()) {
-                    newInHouse.setMin(Integer.parseInt(addPartMinTxt.getText()));
-                }
-                if (!addPartMaxTxt.getText().isEmpty()) {
-                    newInHouse.setMax(Integer.parseInt(addPartMaxTxt.getText()));
-                }
-                if (!addPartDynamicTxt.getText().isEmpty()) {
-                    newInHouse.setMachineId(Integer.parseInt(addPartDynamicTxt.getText()));
-                }
+                ModifypartController.table(newInHouse, addPartNameTxt, addPartPriceTxt, addPartInvTxt, addPartMinTxt, addPartMaxTxt, addPartDynamicTxt);
 
                 Inventory.addPart(newInHouse);
                 System.out.println("Part Added");
@@ -159,24 +142,7 @@ public class AddpartController implements Initializable {
             if (isValid(addPartNameTxt.getText(), addPartPriceTxt.getText(), addPartInvTxt.getText(), addPartMinTxt.getText(), addPartMaxTxt.getText(), addPartDynamicTxt.getText())) {
 
                 newOutsourced.setId(id);
-                if (!addPartNameTxt.getText().isEmpty()) {
-                    newOutsourced.setName(addPartNameTxt.getText());
-                }
-                if (!addPartPriceTxt.getText().isEmpty()) {
-                    newOutsourced.setPrice(Double.parseDouble(addPartPriceTxt.getText()));
-                }
-                if (!addPartInvTxt.getText().isEmpty()) {
-                    newOutsourced.setInv(Integer.parseInt(addPartInvTxt.getText()));
-                }
-                if (!addPartMinTxt.getText().isEmpty()) {
-                    newOutsourced.setMin(Integer.parseInt(addPartMinTxt.getText()));
-                }
-                if (!addPartMaxTxt.getText().isEmpty()) {
-                    newOutsourced.setMax(Integer.parseInt(addPartMaxTxt.getText()));
-                }
-                if (!addPartDynamicTxt.getText().isEmpty()) {
-                    newOutsourced.setCompanyName(addPartDynamicTxt.getText());
-                }
+                ModifypartController.table(newOutsourced, addPartNameTxt, addPartPriceTxt, addPartInvTxt, addPartMinTxt, addPartMaxTxt, addPartDynamicTxt);
 
                 Inventory.addPart(newOutsourced);
                 System.out.println("Part Added");
