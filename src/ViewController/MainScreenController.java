@@ -166,21 +166,26 @@ public class MainScreenController implements Initializable {
     }
 
     @FXML
-    void partOnActionModify(ActionEvent event) throws IOException{
+    void partOnActionModify(ActionEvent event) throws IOException {
+        try {
+            Part selectedPart = partTableView.getSelectionModel().getSelectedItem();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ViewController/Modifypart.fxml"));
+            Parent root = loader.load();
 
-        Part selectedPart = partTableView. getSelectionModel().getSelectedItem();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/ViewController/Modifypart.fxml"));
-        Parent root = loader.load();
-
-        Stage stage = new Stage();
-        ModifypartController controller = loader.getController();
-        controller.setPart(selectedPart);
-        stage.setScene(new Scene(root));
-        stage.show();
+            Stage stage = new Stage();
+            ModifypartController controller = loader.getController();
+            controller.setPart(selectedPart);
+            stage.setScene(new Scene(root));
+            stage.show();
 
 
+        } catch (NullPointerException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Dialog");
+            alert.setContentText("Please select an item");
+            alert.showAndWait();
+        }
     }
-
     //Part table search button
     @FXML
     void partOnActionSearch(ActionEvent event) {

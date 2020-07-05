@@ -270,16 +270,18 @@ public class AddproductController implements Initializable {
 
 }
 
-    public void addProductCancel(ActionEvent event) throws IOException
+    public void addProductCancel(ActionEvent event) throws IOException {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "This will clear all text field values, do you want to continue?");
 
-    {
+        Optional<ButtonType> results = alert.showAndWait();
 
-        stage = (Stage)((Button)event.getSource()).getScene().getWindow();
-        scene = FXMLLoader.load(getClass().getResource("MainScreen.fxml"));
-        stage.setScene(new Scene((Parent) scene));
-        stage.show();
+        if (results.isPresent() && results.get() == ButtonType.OK) {
+            stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+            scene = FXMLLoader.load(getClass().getResource("MainScreen.fxml"));
+            stage.setScene(new Scene((Parent) scene));
+            stage.show();
+        }
     }
-
 
 
 }

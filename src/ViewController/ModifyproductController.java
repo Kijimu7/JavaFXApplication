@@ -201,7 +201,7 @@ public class ModifyproductController implements Initializable {
 
             Optional<ButtonType> result = alert.showAndWait();
             if(result.get() == ButtonType.OK){
-                Part selectedPart= (Part) modifyProductPartTbl.getSelectionModel().getSelectedItem();
+                Part selectedPart= (Part) modifyProductTbl.getSelectionModel().getSelectedItem();
                 product.deleteAssociatedPart(selectedPart);
                 modifyProductPartTbl.refresh();
             }
@@ -226,12 +226,17 @@ public class ModifyproductController implements Initializable {
 
 
         public void modifyProductCancel (ActionEvent event) throws IOException {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "This will clear all text field values, do you want to continue?");
 
-            stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-            scene = FXMLLoader.load(getClass().getResource("MainScreen.fxml"));
-            stage.setScene(new Scene((Parent) scene));
-            stage.show();
+            Optional<ButtonType> results = alert.showAndWait();
 
+            if (results.isPresent() && results.get() == ButtonType.OK) {
+                stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+                scene = FXMLLoader.load(getClass().getResource("MainScreen.fxml"));
+                stage.setScene(new Scene((Parent) scene));
+                stage.show();
+
+            }
         }
 
     private boolean inventoryisValid( String productName, String productInv, String productPrice, String productMax, String productMin) {

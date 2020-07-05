@@ -15,6 +15,7 @@ import model.Outsourced;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.Random;
 
 public class AddpartController implements Initializable {
@@ -200,10 +201,19 @@ public class AddpartController implements Initializable {
     @FXML
     public void onActionCancel(javafx.event.ActionEvent event) throws IOException {
 
-        stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-        scene = FXMLLoader.load(getClass().getResource("MainScreen.fxml"));
-        stage.setScene(new Scene(scene));
-        stage.show();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "This will clear all text field values, do you want to continue?");
+
+        Optional<ButtonType> results = alert.showAndWait();
+
+        if(results.isPresent() && results.get() == ButtonType.OK){
+            stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+            scene = FXMLLoader.load(getClass().getResource("MainScreen.fxml"));
+            stage.setScene(new Scene(scene));
+            stage.show();
+
+        }
+
+
     }
 
 

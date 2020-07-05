@@ -7,11 +7,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import model.*;
+import model.InHouse;
+import model.Inventory;
+import model.Outsourced;
+import model.Part;
 
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ModifypartController implements Initializable {
@@ -290,10 +294,7 @@ public class ModifypartController implements Initializable {
 
 
 
-    @FXML
-    void modifyPartCancel(ActionEvent event) {
 
-    }
 
     @FXML
     void modifyPartCompanyTxt(ActionEvent event) {
@@ -343,23 +344,20 @@ public class ModifypartController implements Initializable {
 
 
 
-    //public void cancelanction(ActionEvent e) thrwsIOException{
-//    if(DialogBoxes.confirmAction("Cancel")){
-//        ReturnToMainScreen(e);
-//    }
-
-//    public void ReturnToMainScreen(ActionEvent e) throuws IOExeption{
-//
-//    }
-
     private void ReturnToMainScreen(javafx.event.ActionEvent event) throws IOException {
-        stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-        scene = FXMLLoader.load(getClass().getResource("MainScreen.fxml"));
-        stage.setScene(new Scene(scene));
-        stage.show();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "This will clear all text field values, do you want to continue?");
+
+        Optional<ButtonType> results = alert.showAndWait();
+
+        if(results.isPresent() && results.get() == ButtonType.OK) {
+            stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+            scene = FXMLLoader.load(getClass().getResource("MainScreen.fxml"));
+            stage.setScene(new Scene(scene));
+            stage.show();
+        }
 
     }
-//        ReturnToMainScreen(event);
+
 
     public void modifyPartCancel(javafx.event.ActionEvent event) throws IOException {
 
