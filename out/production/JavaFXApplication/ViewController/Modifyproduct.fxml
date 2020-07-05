@@ -23,7 +23,7 @@
                         <TextField fx:id="modifyProductMax" layoutX="164.0" layoutY="326.0" prefHeight="25.0" prefWidth="88.0" />
                         <TextField fx:id="modifyProductInv" layoutX="164.0" layoutY="221.0" />
                         <TextField fx:id="modifyProductName" layoutX="164.0" layoutY="171.0" />
-                        <TextField fx:id="modifyProductId" layoutX="164.0" layoutY="115.0" onAction="#modifyProductIdTxt" />
+                        <TextField fx:id="modifyProductId" disable="true" layoutX="164.0" layoutY="115.0" onAction="#modifyProductIdTxt" />
                      </children>
                   </AnchorPane>
                   <TableView fx:id="modifyProductPartTbl" layoutX="575.0" layoutY="77.0" prefHeight="165.0" prefWidth="448.0">
