@@ -61,7 +61,7 @@ InventoryProgram extends Application {
 
 
         //Outsourced parts
-        Outsourced part3 = new Outsourced(6, "part3", 10.00, 60, 1, 100, "company1");
+        Outsourced part3 = new Outsourced(3, "part3", 10.00, 60, 1, 100, "company1");
 
 
 
@@ -72,9 +72,9 @@ InventoryProgram extends Application {
 
         //Products
 
-        Product product1 = new Product(1, "product1", 6.00, 20, 1, 100);
-        Product product2 = new Product(2, "product2", 5.00, 10, 1, 100);
-        Product product3 = new Product(3, "product3", 7.00, 30, 1, 100);
+        Product product1 = new Product(10, "product1", 6.00, 20, 1, 100);
+        Product product2 = new Product(20, "product2", 5.00, 10, 1, 100);
+        Product product3 = new Product(30, "product3", 7.00, 30, 1, 100);
 
 
         Inventory.addProduct(product1);

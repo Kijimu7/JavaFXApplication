@@ -17,7 +17,6 @@ import model.Product;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
-import java.util.Random;
 import java.util.ResourceBundle;
 
 public class ModifyproductController implements Initializable {
@@ -103,7 +102,7 @@ public class ModifyproductController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         generateAssociatedPartTable();
-        generateAssociatedPart2Table();
+
 
     }
 
@@ -114,7 +113,7 @@ public class ModifyproductController implements Initializable {
         modifyProductNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         modifyProductInvCol.setCellValueFactory(new PropertyValueFactory<>("inv"));
         modifyProductPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
-        modifyProductPartTbl.refresh();
+//        modifyProductPartTbl.refresh();
 
     }
 
@@ -125,7 +124,7 @@ public class ModifyproductController implements Initializable {
             modifyProductNameCol2.setCellValueFactory(new PropertyValueFactory<>("name"));
             modifyProductInvCol2.setCellValueFactory(new PropertyValueFactory<>("inv"));
             modifyProductPriceCol2.setCellValueFactory(new PropertyValueFactory<>("price"));
-            modifyProductTbl.refresh();
+//            modifyProductTbl.refresh();
 
         }
     }
@@ -146,16 +145,14 @@ public class ModifyproductController implements Initializable {
 
 
         public void modifyProductSave (ActionEvent actionEvent) throws IOException {
-            //Create auto Ids
-            Random random = new Random();
-            int id = random.nextInt(50);
-            Product modifiedProduct = product;
 
+            Product modifiedProduct = product;
+            index = Inventory.getAllProducts().indexOf(product);
 
 
             if (inventoryisValid(modifyProductName.getText(), modifyProductInv.getText(), modifyProductPrice.getText(), modifyProductMax.getText(), modifyProductMin.getText())) {
 
-                modifiedProduct.setId(id);
+
                 if (!modifyProductName.getText().isEmpty()) {
                     modifiedProduct.setName(modifyProductName.getText());
                 }
@@ -220,7 +217,7 @@ public class ModifyproductController implements Initializable {
             modifyProductMin.setText(Integer.toString(product.getMin()));
 
             product.getAllAssociatedParts();
-            generateAssociatedPartTable();
+            generateAssociatedPart2Table();
 
         }
 

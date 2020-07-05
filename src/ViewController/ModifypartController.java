@@ -117,17 +117,17 @@ public class ModifypartController implements Initializable {
 
                 table(newInHouse, modifyPartNameTxt, modifyPartPriceTxt, modifyPartInvTxt, modifyPartMinTxt, modifyPartMaxTxt, modifyPartDynamicTxt);
 
-//                Inventory.updatePart(index, newInHouse);
-//                System.out.println("Part modified");
-//
-//                Stage stage;
-//                Parent root;
-//                stage = (Stage) saveBtn.getScene().getWindow();
-//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/ViewController/MainScreen.fxml"));
-//                root = loader.load();
-//                Scene scene = new Scene(root);
-//                stage.setScene(scene);
-//                stage.show();
+                Inventory.updatePart(index, newInHouse);
+                System.out.println("Part modified");
+
+                Stage stage;
+                Parent root;
+                stage = (Stage) saveBtn.getScene().getWindow();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/ViewController/MainScreen.fxml"));
+                root = loader.load();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
             }
 
         }else {
