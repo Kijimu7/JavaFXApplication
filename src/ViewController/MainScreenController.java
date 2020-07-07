@@ -169,13 +169,20 @@ public class MainScreenController implements Initializable {
     void partOnActionModify(ActionEvent event) throws IOException {
         try {
             Part selectedPart = partTableView.getSelectionModel().getSelectedItem();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ViewController/Modifypart.fxml"));
-            Parent root = loader.load();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/ViewController/Modifypart.fxml"));
+            loader.load();
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ViewController/Modifypart.fxml"));
+//            Parent root = loader.load();
 
-            Stage stage = new Stage();
+
             ModifypartController controller = loader.getController();
             controller.setPart(selectedPart);
-            stage.setScene(new Scene(root));
+            stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+            Parent scene = loader.getRoot();
+
+
+            stage.setScene(new Scene(scene));
             stage.show();
 
 
@@ -230,16 +237,33 @@ public class MainScreenController implements Initializable {
 
 
         try {
+
             Product selectedProduct = table1.getSelectionModel().getSelectedItem();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ViewController/Modifyproduct.fxml"));
-            Parent root = loader.load();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/ViewController/Modifyproduct.fxml"));
+            loader.load();
 
 
-            Stage stage = new Stage();
+
             ModifyproductController controller = loader.getController();
             controller.setProduct(selectedProduct);
-            stage.setScene(new Scene(root));
+            stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+            Parent scene = loader.getRoot();
+
+
+            stage.setScene(new Scene(scene));
             stage.show();
+
+//            Product selectedProduct = table1.getSelectionModel().getSelectedItem();
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ViewController/Modifyproduct.fxml"));
+//            Parent root = loader.load();
+//
+//
+//            Stage stage = new Stage();
+//            ModifyproductController controller = loader.getController();
+//            controller.setProduct(selectedProduct);
+//            stage.setScene(new Scene(root));
+//            stage.show();
 
         } catch (NullPointerException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
