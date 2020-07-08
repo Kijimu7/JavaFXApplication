@@ -33,7 +33,7 @@ import java.util.ResourceBundle;
  *
  * @author pinko
  */
-public class MainScreenController implements Initializable {
+public abstract class MainScreenController<AddProductClear> implements Initializable {
 
     Stage stage;
     Parent scene;
@@ -99,6 +99,7 @@ public class MainScreenController implements Initializable {
 
     @FXML
     private Button imsExitBtn;
+
 
     @FXML
     void addHandler(MouseEvent event) {
@@ -172,8 +173,7 @@ public class MainScreenController implements Initializable {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/ViewController/Modifypart.fxml"));
             loader.load();
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ViewController/Modifypart.fxml"));
-//            Parent root = loader.load();
+
 
 
             ModifypartController controller = loader.getController();
@@ -212,7 +212,13 @@ public class MainScreenController implements Initializable {
         scene = FXMLLoader.load(getClass().getResource("/ViewController/Addproduct.fxml"));
         stage.setScene(new Scene(scene));
         stage.show();
+
+
     }
+
+
+
+
 
     //Product table delete
     @FXML
@@ -254,16 +260,6 @@ public class MainScreenController implements Initializable {
             stage.setScene(new Scene(scene));
             stage.show();
 
-//            Product selectedProduct = table1.getSelectionModel().getSelectedItem();
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ViewController/Modifyproduct.fxml"));
-//            Parent root = loader.load();
-//
-//
-//            Stage stage = new Stage();
-//            ModifyproductController controller = loader.getController();
-//            controller.setProduct(selectedProduct);
-//            stage.setScene(new Scene(root));
-//            stage.show();
 
         } catch (NullPointerException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);

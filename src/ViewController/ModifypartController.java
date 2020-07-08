@@ -141,11 +141,6 @@ public class ModifypartController implements Initializable {
                 Inventory.updatePart(index, newOutsourced);
                 System.out.println("Part modified");
 
-//                Paret tableViewParet loader = new FXMLLoader(getClass().getResource("/ViewController/MainScreen.fxml"));
-//                Stage window = (Stage)((Node).eventgetSource()).getScene.getWindow();
-//
-//                window.setScene(tableViewScene);
-//                window.show();
 
                 Stage stage;
                 Parent root;

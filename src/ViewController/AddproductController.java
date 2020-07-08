@@ -19,7 +19,11 @@ import java.util.Optional;
 import java.util.Random;
 import java.util.ResourceBundle;
 
+import static com.sun.deploy.net.UpdateTracker.clear;
+
 public class AddproductController implements Initializable {
+
+
 
     public TableView deletePartProductTable;
     public TableView addProductPartTable;
@@ -120,8 +124,11 @@ public class AddproductController implements Initializable {
             addProductNameCol2.setCellValueFactory(new PropertyValueFactory<>("name"));
             addProductInvCol2.setCellValueFactory(new PropertyValueFactory<>("inv"));
             addProductPriceCol2.setCellValueFactory(new PropertyValueFactory<>("price"));
+            clear();
+
 
         }
+
     }
     public void addProductAddBtnOnAction(ActionEvent actionEvent) {
 
@@ -130,6 +137,8 @@ public class AddproductController implements Initializable {
         newProduct.addAssociatedPart(selectedPart);
         generateAssociatedPart2Table();
         addProductPartTable.refresh();
+        deletePartProductTable.refresh();
+
 
     }
 
@@ -172,17 +181,16 @@ public class AddproductController implements Initializable {
                 newProduct.setPrice(Double.parseDouble(addProductPrice.getText()));
             }
             if (!addProductMax.getText().isEmpty()) {
-                newProduct.setMax(Integer.parseInt(addProductMax.getText()));
             }
             if (!addProductMin.getText().isEmpty()) {
                 newProduct.setMin(Integer.parseInt(addProductMin.getText()));
+                newProduct.setMax(Integer.parseInt(addProductMax.getText()));
             }
 
 
             Inventory.addProduct(newProduct);
-            System.out.println("Product Added");
 
-            Stage stage;
+
             Parent root;
             stage = (Stage) addProductSaveBtn.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/ViewController/MainScreen.fxml"));
@@ -190,8 +198,13 @@ public class AddproductController implements Initializable {
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
+
+
         }
+
         }
+
+
 
 
 
