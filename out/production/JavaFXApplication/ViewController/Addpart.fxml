@@ -10,7 +10,7 @@
          <toggleGroup>
             <ToggleGroup fx:id="toggleGroup" />
          </toggleGroup></RadioButton>
-      <RadioButton fx:id="addPartOutsourcedRBtn" layoutX="291.0" layoutY="43.0" mnemonicParsing="false" onAction="#outsourcedRBtnS" selected="true" text="Outsourcesd" toggleGroup="$toggleGroup" />
+      <RadioButton fx:id="addPartOutsourcedRBtn" layoutX="291.0" layoutY="43.0" mnemonicParsing="false" onAction="#outsourcedRBtnS" selected="true" text="Outsourced" toggleGroup="$toggleGroup" />
       <Label fx:id="addPartCnameLbl" layoutX="26.0" layoutY="376.0" prefHeight="17.0" prefWidth="120.0" text="Company Name" />
       <Label layoutX="300.0" layoutY="330.0" text="Min" />
       <Label layoutX="54.0" layoutY="119.0" text="ID" />

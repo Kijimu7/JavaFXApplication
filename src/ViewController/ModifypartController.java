@@ -254,7 +254,7 @@ public class ModifypartController implements Initializable {
     }
         try {
         double price = Double.parseDouble(partPrice);
-        if (price < 0) {
+        if (price <= 0) {
             errorMessage += ("Price cannot be less than zero\n");
         }
     } catch (NumberFormatException e) {
