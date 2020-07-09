@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ViewController.ModifypartController">
+   <children>
+      <AnchorPane id="AnchorPane" layoutX="10.0" layoutY="10.0" prefHeight="500.0" prefWidth="600.0">
+         <children>
+            <Label layoutX="35.0" layoutY="43.0" prefHeight="17.0" prefWidth="70.0" text="Modify Part" />
+            <RadioButton fx:id="inHouseRBtn" layoutX="138.0" layoutY="43.0" mnemonicParsing="false" onAction="#inHouseRBtnS" text="In-House">
+               <toggleGroup>
+                  <ToggleGroup fx:id="toggleGroup" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="outsourcedRBtn" layoutX="291.0" layoutY="43.0" mnemonicParsing="false" onAction="#outsourcedRBtnS" selected="true" text="Outsourcesd" toggleGroup="$toggleGroup" />
+            <Label fx:id="modifyPartCnameLbl" layoutX="52.0" layoutY="376.0" text="Company Name" />
+            <Label layoutX="300.0" layoutY="330.0" text="Min" />
+            <Label layoutX="54.0" layoutY="119.0" text="ID" />
+            <Label layoutX="54.0" layoutY="175.0" text="Name" />
+            <Label layoutX="54.0" layoutY="330.0" text="Max" />
+            <Label layoutX="54.0" layoutY="279.0" text="Price/Cost" />
+            <Label layoutX="54.0" layoutY="225.0" prefHeight="17.0" prefWidth="32.0" text="Inv" />
+            <TextField fx:id="modifyPartMinTxt" layoutX="341.0" layoutY="326.0" onAction="#modifyPartMinTxt" prefHeight="25.0" prefWidth="86.0" />
+            <TextField fx:id="modifyPartPriceTxt" layoutX="164.0" layoutY="275.0" onAction="#modifyPartCostTxt" />
+            <TextField fx:id="modifyPartDynamicTxt" layoutX="164.0" layoutY="372.0" onAction="#modifyPartCompanyTxt" />
+            <TextField fx:id="modifyPartMaxTxt" layoutX="164.0" layoutY="326.0" onAction="#modifyPartMaxTxt" prefHeight="25.0" prefWidth="88.0" />
+            <TextField fx:id="modifyPartInvTxt" layoutX="164.0" layoutY="221.0" onAction="#modifyPartInvOnAction" />
+            <TextField fx:id="modifyPartNameTxt" layoutX="164.0" layoutY="171.0" onAction="#modifyPartNameOnAction" />
+            <TextField fx:id="modifyPartIdTxt" editable="false" layoutX="164.0" layoutY="115.0" />
+            <Button fx:id="saveBtn" layoutX="313.0" layoutY="419.0" mnemonicParsing="false" onAction="#modifyPartSave" onMouseClicked="#modifyPartSave" text="Save" />
+            <Button fx:id="cancelBtn" layoutX="399.0" layoutY="419.0" mnemonicParsing="false" onAction="#modifyPartCancel" text="Cancel" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
