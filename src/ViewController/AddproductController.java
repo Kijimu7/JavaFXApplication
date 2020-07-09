@@ -1,5 +1,6 @@
 package ViewController;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,7 +22,10 @@ import java.util.ResourceBundle;
 
 public class AddproductController implements Initializable {
 
+    @FXML
     public TableView deletePartProductTable;
+
+    @FXML
     public TableView addProductPartTable;
 
     Product newProduct;
@@ -104,17 +108,19 @@ public class AddproductController implements Initializable {
     private void generateAssociatedPartTable(){
 
 
-            addProductPartTable.setItems(Inventory.getAllParts());
-        addProductPartIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-        addProductPartNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
-        addProductPartInvCol.setCellValueFactory(new PropertyValueFactory<>("inv"));
-        addProductPartPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
-            addProductPartTable.refresh();
+                addProductPartTable.setItems(Inventory.getAllParts());
+                addProductPartIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+                addProductPartNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+                addProductPartInvCol.setCellValueFactory(new PropertyValueFactory<>("inv"));
+                addProductPartPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
+                addProductPartTable.refresh();
 
         }
 
-    private void generateAssociatedPart2Table(){
-        if(!newProduct.getAllAssociatedParts().isEmpty()){
+    private void generateAssociatedPart2Table() {
+
+        if (newProduct.getAllAssociatedParts().isEmpty()) {
+
             deletePartProductTable.setItems(newProduct.getAllAssociatedParts());
             addProductIdCol2.setCellValueFactory(new PropertyValueFactory<>("id"));
             addProductNameCol2.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -122,16 +128,35 @@ public class AddproductController implements Initializable {
             addProductPriceCol2.setCellValueFactory(new PropertyValueFactory<>("price"));
 
         }
+
     }
+
+
+
+
+
+
+
+
     public void addProductAddBtnOnAction(ActionEvent actionEvent) {
 
         Part selectedPart = (Part) addProductPartTable.getSelectionModel().getSelectedItem();
 
         newProduct.addAssociatedPart(selectedPart);
         generateAssociatedPart2Table();
-        addProductPartTable.refresh();
+
+
+
 
     }
+
+    //test add button for repeat parts dialog
+
+
+
+
+
+
 
     @FXML
     void addProductDeleteBtnOnAction(ActionEvent event) {
@@ -154,44 +179,72 @@ public class AddproductController implements Initializable {
 
     public void addProductSaveBtnOnAction(ActionEvent actionEvent) throws IOException {
 
-    //Create auto Ids
-    Random random = new Random();
-    int id = random.nextInt(50);
 
 
-        if (inventoryisValid(addProductName.getText(), addProductInv.getText(), addProductPrice.getText(), addProductMax.getText(), addProductMin.getText())) {
+            //Create auto Ids
+            Random random = new Random();
+            int id = random.nextInt(50);
 
-            newProduct.setId(id);
-            if (!addProductName.getText().isEmpty()) {
-                newProduct.setName(addProductName.getText());
+
+            if (inventoryisValid(addProductName.getText(), addProductInv.getText(), addProductPrice.getText(), addProductMax.getText(), addProductMin.getText())) {
+
+                newProduct.setId(id);
+                if (!addProductName.getText().isEmpty()) {
+                    newProduct.setName(addProductName.getText());
+                }
+                if (!addProductInv.getText().isEmpty()) {
+                    newProduct.setInv(Integer.parseInt(addProductInv.getText()));
+                }
+                if (!addProductPrice.getText().isEmpty()) {
+                    newProduct.setPrice(Double.parseDouble(addProductPrice.getText()));
+                }
+                if (!addProductMax.getText().isEmpty()) {
+                    newProduct.setMax(Integer.parseInt(addProductMax.getText()));
+                }
+                if (!addProductMin.getText().isEmpty()) {
+                    newProduct.setMin(Integer.parseInt(addProductMin.getText()));
+                }
+
+
+
+                Inventory.addProduct(newProduct);
+                System.out.println("Product Added");
+
+
+                ObservableList<Part> parts = deletePartProductTable.getItems();
+
+                 if (!parts.isEmpty()) {
+                    Stage stage;
+                    Parent root;
+                    stage = (Stage) addProductSaveBtn.getScene().getWindow();
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/ViewController/MainScreen.fxml"));
+                    root = loader.load();
+                    Scene scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
+                }else
+                    {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error Dialog");
+                    alert.setContentText("Please select an item");
+                    alert.showAndWait();
+                }
+
+
+
+
+
+
+
             }
-            if (!addProductInv.getText().isEmpty()) {
-                newProduct.setInv(Integer.parseInt(addProductInv.getText()));
-            }
-            if (!addProductPrice.getText().isEmpty()) {
-                newProduct.setPrice(Double.parseDouble(addProductPrice.getText()));
-            }
-            if (!addProductMax.getText().isEmpty()) {
-                newProduct.setMax(Integer.parseInt(addProductMax.getText()));
-            }
-            if (!addProductMin.getText().isEmpty()) {
-                newProduct.setMin(Integer.parseInt(addProductMin.getText()));
-            }
+
+    }
 
 
-            Inventory.addProduct(newProduct);
-            System.out.println("Product Added");
 
-            Stage stage;
-            Parent root;
-            stage = (Stage) addProductSaveBtn.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ViewController/MainScreen.fxml"));
-            root = loader.load();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        }
-        }
+
+
+
 
 
 
