@@ -1,7 +1,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://github.com/Kijimu7/JavaFXApplication/blob/master/Inventory.gif)
+<img src="https://github.com/Kijimu7/JavaFXApplication/blob/master/Inventory.gif" alt="Inventory system" onclick="window.open('anotherpage.html', '_blank');" />
 
 
 ### Built With
